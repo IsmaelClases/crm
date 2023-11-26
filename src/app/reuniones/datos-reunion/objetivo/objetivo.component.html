@@ -1,0 +1,15 @@
+<div class="container">
+    <h3 mat-dialog-title>Objetivos: {{ENTIDAD}}</h3>
+
+    <form class="mat-dialog-content" [formGroup]="objetivoForm">
+
+        <div class="form">
+            <!-- <mat-form-field color="accent">
+                <textarea matInput placeholder="Objetivo" rows="25" formControlName="objetivo" name="objetivo"></textarea>
+            </mat-form-field> -->
+            <angular-editor formControlName="objetivo" [config]="editorConfig" required></angular-editor>
+
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+    <h3 mat-dialog-title>Resultados: {{ENTIDAD}}</h3>
+
+    <form class="mat-dialog-content" [formGroup]="resultadoForm">
+
+        <div class="form">
+            <!-- <mat-form-field color="accent">
+                <textarea matInput placeholder="Resultado" rows="25" formControlName="resultado" name="resultado"></textarea>
+            </mat-form-field> -->
+            <angular-editor formControlName="resultado" [config]="editorConfig" required></angular-editor>
+
+        </div>
+
+
+
+    </form>
+</div>

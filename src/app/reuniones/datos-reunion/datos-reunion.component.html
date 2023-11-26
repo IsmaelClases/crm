@@ -1,0 +1,18 @@
+<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened>
+        <mat-nav-list>
+            <mat-list-item mat-list-item (click)="navega('datos-basicos-reunion')"> Reunión </mat-list-item>
+            <mat-list-item mat-list-item (click)="navega('asistentes')"> Asistentes </mat-list-item>
+            <mat-list-item mat-list-item (click)="navega('objetivo')"> Objetivo </mat-list-item>
+            <mat-list-item mat-list-item (click)="navega('resultado')"> Resultado </mat-list-item>
+        </mat-nav-list>
+        <button mat-button class="save" (click)="save()">Guardar</button>
+        <button mat-button class="onNoClick" (click)="onNoClick()">Cancelar</button>
+    </mat-sidenav>
+    <mat-sidenav-content>
+
+        <router-outlet name="sidebar"></router-outlet>
+        
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

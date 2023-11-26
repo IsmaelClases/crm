@@ -1,0 +1,38 @@
+<div class="container">
+    <h3 mat-dialog-title>Añadir opción</h3>
+
+    <form class="mat-dialog-content" [formGroup]="opcionForm">
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="Opción" formControlName="opcion" name="opcion" maxlength="100" required>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="Acción" formControlName="accion" name="accion" maxlength="100"
+                    required>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="Tooltip menú" formControlName="texto_tooltip" name="texto_tooltip" maxlength="255">
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <textarea matInput placeholder="Observaciones" formControlName="observaciones"
+                    name="observaciones"></textarea>
+            </mat-form-field>
+        </div>
+
+        <div mat-dialog-actions>
+            <button mat-button id="onSubmit" type="submit"  [disabled]="!opcionForm.valid" (click)="confirmAdd()">Guardar</button>
+            <button mat-button id="onNoClick" (click)="onNoClick()" tabindex="-1">Cancelar</button>
+        </div>
+
+    </form>
+</div>

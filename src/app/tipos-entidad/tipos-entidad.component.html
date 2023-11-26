@@ -1,0 +1,48 @@
+<div class="example-container mat-elevation-z8">
+    <div class="example-table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+            <ng-container matColumnDef="id_tipo_entidad">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idTipoEntidadFilter" placeholder="Id">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let tiposEntidad"> {{tiposEntidad.id_tipo_entidad}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="tipo_entidad">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="tipoEntidadFilter" placeholder="Tipo Entidad">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let tiposEntidad"> {{tiposEntidad.tipo_entidad}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>
+                    <button mat-icon-button (click)="addTipoEntidad()">
+                <mat-icon>
+                  add_circle
+                </mat-icon>
+              </button>
+                </th>
+                <td mat-cell *matCellDef="let tiposEntidad">
+                    <button mat-icon-button (click)="editTipoEntidad(tiposEntidad)">
+                <mat-icon>
+                  mode_edit
+                </mat-icon>
+              </button>
+                    <button mat-icon-button (click)="deleteTipoEntidad(tiposEntidad)">
+                <mat-icon>
+                  delete
+                </mat-icon>
+              </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+</div>

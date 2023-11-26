@@ -1,0 +1,43 @@
+.container {
+    margin: 0 auto;
+    min-width: 30em;
+    text-align: center;
+    padding-top: 10px;
+}
+
+::ng-deep .mat-column-nombre_completo {
+    width: 16em !important;
+    padding-right: 2em !important;
+    word-wrap: break-word!important;
+}
+
+::ng-deep .mat-column-cargo {
+    width: 14em !important;
+    padding-right: 2em !important;
+    word-wrap: break-word!important;
+}
+
+::ng-deep .mat-column-entidad {
+    width: 16em !important;
+    padding-right: 0em !important;
+    word-wrap: break-word!important;
+}
+
+div.mat-dialog-actions {
+    width: 12em;
+    margin: auto;
+}
+
+.radioButton {
+    text-align: left;
+    margin-bottom: 1em;
+    padding-left: 0.2em;
+}
+
+.alert-info {
+    background-color: darkslateblue;
+    color: white;
+    padding: 0em 0;
+    text-align: center;
+    line-height: 3em;
+}

@@ -1,0 +1,22 @@
+.perfil-container{
+    // padding-top: 50px;
+    margin: 0 auto;
+    width: 50em;
+    text-align: center;
+}
+
+mat-form-field {
+    width: 300px;
+}
+mat-card{
+    margin-top: 2em;
+    border: rgb(172, 172, 172) solid 1px;
+    width: 50em;
+    height: 25em;
+    align-content: center;
+}
+
+mat-label{
+    text-align: right;
+    color:#f15a24;
+}

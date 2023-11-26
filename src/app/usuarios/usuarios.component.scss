@@ -1,0 +1,9 @@
+
+mat-form-field {
+margin-top: 20px;
+}
+
+::ng-deep .mat-form-field-infix {
+    padding: 5px !important;
+    height: 15px;
+}

@@ -1,0 +1,61 @@
+.container {
+   // width: 55em;
+    //text-align: center;
+    padding-bottom: 10em;
+}
+
+.mat-dialog-content {
+    margin-left: 5%;
+}
+
+.mat-dialog-title {
+    text-align: center;
+}
+
+.mat-dialog-actions {
+    display: block;
+    text-align: center;
+}
+
+.mat-column-Id {
+    width: 1.5em !important;
+    padding-right: 4em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-NombreCompleto {
+    width: 18em !important;
+    padding-right: 2em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-Cargo {
+    width: 16em !important;
+    padding-right: 2em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-Entidad {
+    width: 18em !important;
+    padding-right: 0em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-actions {
+    width: 2em !important;
+    padding-right: 0em !important;
+    word-wrap: break-word!important;
+}
+
+.selected .mat-cell.blanco {
+    color: rgb(255, 255, 255) !important;
+}
+
+.selected .mat-cell {
+    background-color: #726dfeaf;
+}
+
+
+button {
+    margin-left: 2em;
+}

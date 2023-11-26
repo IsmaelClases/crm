@@ -1,0 +1,156 @@
+@import '../../../variables.scss';
+
+.herramientas div {
+  /* color: rgb(127, 180, 130); */
+  font-size: medium;
+  display: flex;
+  font-family: 'Roboto', 'Helvetica Neue', sans-serif;
+  color: #556269;
+}
+
+.herramientas img {
+  width: auto !important;
+  height: 40px;
+}
+
+.navbar{
+  position: relative;
+  width: 100%;
+}
+
+.vistaactual {
+  position: absolute;;
+  // width: 500px;
+  color: #000000;
+  // vertical-align: middle !important;
+  // padding: 20px;
+  // margin: auto;
+  // padding-top: 10px;
+  margin-left: 20px;
+  font-size: medium;
+  padding-top: 2px;
+  transform: translateY(50%);
+  // border-left: 1px solid #a5a8a9;
+}
+
+.mat-button,
+.mat-icon-button,
+.mat-stroked-button {
+  color: inherit;
+  background: transparent;
+}
+
+.usuario {
+  position: absolute;
+  // margin: auto;
+  right: 0px;
+  transform: translateY(50%);
+  // padding-top: 8px;
+}
+
+.todo {
+  cursor: pointer;
+}
+
+.herramientas {
+  vertical-align: middle !important;
+  /* height: 50%; */
+  padding-top: 4px;
+  // padding-bottom: 4px;
+  padding-left: 15px;
+  background: #ffffff;
+  color: white;
+  width: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  min-height: 48px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.menu_opciones {
+  background: $naranja-monsalvez;
+  /* background-image: linear-gradient(to left, rgba(255,0,0,0), rgba(0, 130, 229, 1));*/
+  color: white;
+  height: 36px;
+  transform: translateY(-25%);
+  // padding-top: -1px;
+  margin-top: 10px;
+  font-size: small;
+}
+
+.dropdown-item {
+  font-size: small;
+}
+
+div#navbarNavDropdown a {
+  color: black;
+}
+
+.dropdown-item:active {
+  background-color: white;
+}
+
+a#navbarDropdownMenuLink {
+  -webkit-transition: all 0.2s ease-in-out 0s;
+  -moz-transition: all 0.2s ease-in-out 0s;
+  -o-transition: all 0.2s ease-in-out 0s;
+  -ms-transition: all 0.2s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+ul.navbar-nav.ulpermenu {
+  display: -webkit-box;
+}
+
+li.nav-item.dropdown.lipermenu.ng-star-inserted {
+  margin-left: 23px;
+}
+
+.dropdown-menu.show {
+  background: #e8e4f1;
+}
+
+.dropdown-item:hover {
+  background: #e4d0ff !important;
+}
+
+li {
+  display: inline;
+  text-align: center;
+}
+
+li.nav-item.dropdown.lipermenu {
+  margin-right: 20px;
+}
+
+.logo {
+  max-width: 100px;
+  padding: 0px 20px;
+  line-height: 45px;
+  border-right: 1px solid #a5a8a9;
+}
+
+.logo img {
+  vertical-align: middle;
+}
+
+.subcontenido {
+  padding: 1px 35px 0px 13px;
+}
+
+.opcionesNav {
+  border: 0px solid !important;
+}
+
+.opcionesNav.ayuda {
+  position: absolute !important;
+  right: 34px !important;
+}
+
+mat-dialog {
+  width: 50%;
+}

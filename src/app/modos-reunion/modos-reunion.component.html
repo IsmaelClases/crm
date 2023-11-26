@@ -1,0 +1,48 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+      <ng-container matColumnDef="id_modo_reunion">
+        <th mat-header-cell *matHeaderCellDef>
+          <input matInput [formControl]="idModoReunionFilter" placeholder="Id">
+          <span mat-sort-header></span>
+        </th>
+        <td mat-cell *matCellDef="let modosReunion"> {{modosReunion.id_modo_reunion}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="modo_reunion">
+        <th mat-header-cell *matHeaderCellDef>
+          <input matInput [formControl]="modoReunionFilter" placeholder="Modo Reunion">
+          <span mat-sort-header></span>
+        </th>
+        <td mat-cell *matCellDef="let modosReunion"> {{modosReunion.modo_reunion}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>
+          <button mat-icon-button (click)="addModoReunion()">
+            <mat-icon>
+              add_circle
+            </mat-icon>
+          </button>
+        </th>
+        <td mat-cell *matCellDef="let modosReunion">
+          <button mat-icon-button (click)="editModoReunion(modosReunion)">
+            <mat-icon>
+              mode_edit
+            </mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteModoReunion(modosReunion)">
+            <mat-icon>
+              delete
+            </mat-icon>
+          </button>
+            </td>
+          </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+</div>

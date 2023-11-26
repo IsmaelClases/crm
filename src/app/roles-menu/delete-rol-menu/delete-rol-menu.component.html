@@ -1,0 +1,15 @@
+<div class="container">
+    <h3 mat-dialog-title>Borrar rol de menú</h3>
+
+    <p>Datos del registro: </p>
+    <ul>
+        <li>Rol: {{ rolMenu.rol }}</li>
+        <li>Grupo: {{ rolMenu.grupo }}</li>
+        <li>Opción: {{ rolMenu.opcion }}</li>
+        <li>Observaciones: {{ rolMenu.observaciones }}</li>
+    </ul>
+    <div mat-dialog-actions>
+        <button mat-button id="deleteRolMenu" type="submit" (click)="deleteRolMenu()">Eliminar</button>
+        <button mat-button id="onNoClick" (click)="onNoClick()" tabindex="-1">Cancelar</button>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="card signin-content">
+    <div class="card-body">
+        <app-login *ngIf="!formularioRecuperacion && !formularioReseteo" (valueChange)="forgotPassword($event)"></app-login>
+        <app-recover-password *ngIf="formularioRecuperacion && !formularioReseteo" (valueChange)="forgotPassword($event)"></app-recover-password>
+        <app-reset-password *ngIf="!formularioRecuperacion && formularioReseteo" (valueChanges)="resetPass($event)" [tokenPasswd]="tokenPasswd"></app-reset-password>
+    </div>
+</div>

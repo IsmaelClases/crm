@@ -1,0 +1,12 @@
+<div class="container">
+    <h3 mat-dialog-title>Borrar usuario</h3>
+
+    <p><strong>¡Atención! Se eliminará el usuario:</strong> {{usuario.usuario}} </p>
+
+    <p> Esto sirve para eliminar usuarios creados por error, en otro caso es recomendable deshabilitar el usuario desde el panel de editar.</p>
+
+    <div mat-dialog-actions>
+        <button id="deleteUser" mat-button type="submit" (click)="deleteUser()">Eliminar</button>
+        <button id="onNoClick" mat-button (click)="onNoClick()" tabindex="-1">Cancelar</button>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="container ">
+    <h3 mat-dialog-title>Asistentes de la reunión</h3>
+    <div class="example-table-container">
+        <table mat-table [dataSource]="dataSource" matSort>
+
+            <ng-container matColumnDef="Id">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idAsistenteFilter" placeholder="Id">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let asistentes"> {{asistentes.id_asistente}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="NombreCompleto">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="nombreCompletoFilter" placeholder="Nombre">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let asistentes"> {{asistentes.nombre_completo}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="Cargo">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="cargoFilter" placeholder="Cargo">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let asistentes"> {{asistentes.cargo}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="Entidad">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="entidadFilter" placeholder="Entidad">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let asistentes"> {{asistentes.entidad}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>
+                    <button mat-icon-button (click)="addAsistente()">
+			  <mat-icon>
+				add_circle
+			  </mat-icon>
+			</button>
+                </th>
+                <td mat-cell *matCellDef="let asistentes">
+                    <button mat-icon-button (click)="deleteAsistente(asistentes)">
+			  <mat-icon>
+				remove_circle_outline
+			  </mat-icon>
+			</button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+
+</div>

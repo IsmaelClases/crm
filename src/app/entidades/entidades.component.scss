@@ -1,0 +1,37 @@
+.mat-column-entidad {
+    width: 30% !important;
+    padding-right: 1em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-id_tipo_entidad {
+    width: 20% !important;
+    padding-right: 1em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-id_zona {
+    width: 20% !important;
+    padding-right: 1em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-id_contacto {
+    width: 20% !important;
+    padding-right: 1em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-actions {
+    width: 4em !important;
+    padding-right: 0em !important;
+    word-wrap: break-word!important;
+}
+
+.selected .mat-cell.blanco {
+    color: rgb(255, 255, 255) !important;
+}
+
+.selected .mat-cell {
+    background-color: #726dfeaf;
+}

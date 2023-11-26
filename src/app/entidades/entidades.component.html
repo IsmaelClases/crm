@@ -1,0 +1,87 @@
+<div class="example-container mat-elevation-z8">
+    <div class="example-table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+            <ng-container matColumnDef="id_entidad">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idEntidadFilter" placeholder="Id">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let entidades"> {{entidades.id_entidad}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="entidad">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="entidadFilter" placeholder="Entidad">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let entidades"> {{entidades.entidad}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="id_tipo_entidad">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idTipoEntidadFilter" placeholder="Tipo Entidad">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let entidades"> {{entidades.fk_tipo_entidad}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="id_zona">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idZonaFilter" placeholder="Zona">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let entidades"> {{entidades.fk_zona}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="id_contacto">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idContactoFilter" placeholder="Dinamizador">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let entidades"> {{entidades.fk_contacto}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>
+                    <button mat-icon-button (click)="addEntidad()">
+                        <mat-icon>
+                            add_circle
+                        </mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="getContactos()">
+                        <mat-icon>
+                            mail
+                        </mat-icon>
+                    </button>
+                    <mat-checkbox (change)="chooseAllPublicacion($event)" [checked]="isChecked">
+                    </mat-checkbox>
+                </th>
+                <td mat-cell *matCellDef="let entidades">
+                    <button mat-icon-button (click)="datosEntidad(entidades)">
+                        <mat-icon>
+                            assignment
+                        </mat-icon>
+                    </button>
+                    <!-- <button mat-icon-button (click)="editEntidad(entidades)">
+                        <mat-icon>
+                            mode_edit
+                        </mat-icon>
+                    </button> -->
+                    <button mat-icon-button (click)="deleteEntidad(entidades)">
+                        <mat-icon>
+                            delete
+                        </mat-icon>
+        			</button>
+                    <mat-checkbox (change)="chooseEntidad(entidades.id_entidad, $event)" [checked]="entidades.checked">
+                    </mat-checkbox>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{ 'selected': selection.isSelected(row)}" (click)="selection.select(row)" (dblclick)="datosEntidad(row)"></tr>
+
+        </table>
+    </div>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]" (page)="changePage()"></mat-paginator>
+</div>

@@ -1,0 +1,14 @@
+<div class="container">
+    <h3 mat-dialog-title>¿Seguro que deseas eliminar este rol?</h3>
+    <div mat-dialog-content>
+      Id: {{rol.id_rol}}
+      <p></p>
+      Rol: {{rol.rol}}
+      <p></p>
+    </div>
+  
+    <div mat-dialog-actions>
+      <button mat-button id="deleteRol" (click)="confirmDelete()">Eliminar Rol</button>
+      <button mat-button id="onNoClick" (click)="onNoClick()" tabindex="-1">Cancelar</button>
+    </div>
+  </div>

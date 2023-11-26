@@ -1,0 +1,20 @@
+.container {
+    width: 56em;
+    //height: 24em;
+    text-align: center;
+    //padding-bottom: 10em;
+}
+
+.mat-dialog-content {
+    margin-left: 1em;
+}
+
+::ng-deep.mat-dialog-actions {
+    display: block;
+    text-align: center;
+}
+
+.mat-dialog-title {
+    margin-bottom: 0;
+}
+

@@ -1,0 +1,67 @@
+<div class="container">
+    <h3 mat-dialog-title>Editar rol de menú</h3>
+
+    <form class="mat-dialog-content" [formGroup]="rolMenuForm">
+
+        <div class="form">
+            <mat-form-field>
+                <mat-select formControlName="id_rol" placeholder="Rol">
+                    <mat-option *ngFor="let rol of roles" [value]="rol.id_rol">
+                        {{ rol.rol }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field>
+                <mat-select formControlName="id_opcion" placeholder="Opcion">
+                    <mat-option *ngFor="let opcion of opciones" [value]="opcion.id_opcion_menu">
+                        {{ opcion.opcion }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field>
+                <mat-select formControlName="id_grupo" placeholder="Grupo">
+                    <mat-option *ngFor="let grupo of grupos" [value]="grupo.id_grupo_menu">
+                        {{ grupo.grupo }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <textarea matInput placeholder="Observaciones" formControlName="observaciones"
+                    name="observaciones"></textarea>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-checkbox formControlName="add">
+                    Añadir
+            </mat-checkbox>
+        </div>
+
+        <div class="form">
+                <mat-checkbox formControlName="edit">
+                    Editar
+                </mat-checkbox>
+        </div>
+
+        <div class="form">
+                <mat-checkbox formControlName="delete">
+                    Borrar
+                </mat-checkbox>
+        </div>
+
+        <div mat-dialog-actions>
+            <button mat-button id="onSubmit" type="submit" [disabled]="!rolMenuForm.valid" (click)="confirmAdd()">Guardar</button>
+            <button mat-button id="onNoClick" (click)="onNoClick()" tabindex="-1">Cancelar</button>
+        </div>
+
+    </form>
+</div>

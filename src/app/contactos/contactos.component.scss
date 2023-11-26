@@ -1,0 +1,43 @@
+.mat-column-nombre_completo {
+    width: 20% !important;
+    padding-right: 2em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-cargo {
+    width: 15% !important;
+    padding-right: 2em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-direccion_completa {
+    width: 20% !important;
+    padding-right: 1em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-entidad {
+    width: 20% !important;
+    padding-right: 2em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-familia {
+    width: 15% !important;
+    padding-right: 1em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-actions {
+    width: 4em !important;
+    padding-right: 0em !important;
+    word-wrap: break-word!important;
+}
+
+.selected .mat-cell.blanco {
+    color: rgb(255, 255, 255) !important;
+}
+
+.selected .mat-cell {
+    background-color: #726dfeaf;
+}

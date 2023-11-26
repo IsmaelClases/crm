@@ -1,0 +1,14 @@
+<div class="container">
+    <h3 mat-dialog-title>¿Seguro que deseas eliminar este {{ENTIDAD}}?</h3>
+    <div mat-dialog-content>
+        Id: {{contacto.id_contacto}}
+        <p></p>
+        {{ENTIDAD}}: {{contacto.nombre_completo}}
+        <p></p>
+    </div>
+
+    <div mat-dialog-actions>
+        <button mat-button id="deleteEntidad" (click)="confirmDelete()">Eliminar {{ENTIDAD}}</button>
+        <button mat-button id="onNoClick" (click)="onNoClick()" tabindex="-1">Cancelar</button>
+    </div>
+</div>

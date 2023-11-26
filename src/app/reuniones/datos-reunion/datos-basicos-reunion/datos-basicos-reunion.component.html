@@ -1,0 +1,110 @@
+<div class="container">
+    <h3 mat-dialog-title>Editar {{ENTIDAD}}</h3>
+
+    <form class="mat-dialog-content" [formGroup]="datosBasicosForm">
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="Reunión" formControlName="reunion" name="reunion" maxlength="100" required>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Dinamizador</mat-label>
+                <mat-select formControlName="id_contacto" required>
+                    <mat-option value="">Sin dinamizador</mat-option>
+                    <mat-option *ngFor="let idC of contactos" [value]="idC.id_contacto">
+                        {{idC.nombre_completo}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input type="date" matInput placeholder="Fecha" formControlName="fecha" name="fecha" maxlength="100" required>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input type="time" matInput placeholder="Hora Inicio" formControlName="hora_inicio" name="hora_inicio" maxlength="100" required>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input type="time" matInput placeholder="Hora Fin" formControlName="hora_fin" name="hora_fin" maxlength="100" required>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="Ubicación" formControlName="ubicacion" name="ubicacion" maxlength="100">
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="Localidad" formControlName="localidad" name="localidad" maxlength="100" required="">
+            </mat-form-field>
+        </div>
+        
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Modo Reunión</mat-label>
+                <mat-select formControlName="id_modo_reunion" required>
+                    <mat-option value="">Sin modo reunion</mat-option>
+                    <mat-option *ngFor="let idModR of modos_reunion" [value]="idModR.id_modo_reunion">
+                        {{idModR.modo_reunion}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Motivo Reunión</mat-label>
+                <mat-select formControlName="id_motivo_reunion" required>
+                    <mat-option value="">Sin motivo reunion</mat-option>
+                    <mat-option *ngFor="let idMotR of motivos_reunion" [value]="idMotR.id_motivo_reunion">
+                        {{idMotR.motivo_reunion}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Entidad Target</mat-label>
+                <mat-select formControlName="id_entidad_target">
+                    <mat-option value="">Sin entidad target</mat-option>
+                    <mat-option *ngFor="let idET of entidades_target" [value]="idET.id_entidad">
+                        {{idET.entidad}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Zona</mat-label>
+                <mat-select formControlName="id_zona" required>
+                    <mat-option value="">Sin zona</mat-option>
+                    <mat-option *ngFor="let idZ of zonas" [value]="idZ.id_zona">
+                        {{idZ.zona}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <textarea matInput placeholder="Observaciones" formControlName="observaciones" name="Observaciones"></textarea>
+            </mat-form-field>
+        </div>
+
+
+
+    </form>
+</div>

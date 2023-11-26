@@ -1,0 +1,14 @@
+<div class="container">
+  <h3 mat-dialog-title>¿Seguro que deseas eliminar este grupo?</h3>
+  <div mat-dialog-content>
+    Id: {{grupo.id_grupo_menu}}
+    <p></p>
+    Grupo: {{grupo.grupo}}
+    <p></p>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button id="deleteGrupo" (click)="confirmDelete()">Eliminar Grupo</button>
+    <button mat-button id="onNoClick" (click)="onNoClick()" tabindex="-1">Cancelar</button>
+  </div>
+</div>

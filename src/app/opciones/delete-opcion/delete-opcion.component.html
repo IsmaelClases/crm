@@ -1,0 +1,14 @@
+<div class="container">
+  <h3 mat-dialog-title>¿Seguro que deseas eliminar esta opción?</h3>
+  <div mat-dialog-content>
+    Id: {{opcion.id_opcion_menu}}
+    <p></p>
+    Opción: {{opcion.opcion}}
+    <p></p>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button id="deleteOpcion" (click)="confirmDelete()">Eliminar Opción</button>
+    <button mat-button id="onNoClick" (click)="onNoClick()" tabindex="-1">Cancelar</button>
+  </div>
+</div>

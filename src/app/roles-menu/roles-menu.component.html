@@ -1,0 +1,57 @@
+<div class="example-container mat-elevation-z8">
+    <div class="example-table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+            <ng-container matColumnDef="rol">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="rolFilter" placeholder="Rol">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let rolMenu"> {{rolMenu.rol}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="grupo">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="grupoFilter" placeholder="Grupo">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let rolMenu"> {{rolMenu.grupo}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="opcion">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="opcionFilter" placeholder="Opcion">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let rolMenu"> {{rolMenu.opcion}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef> 
+                    <button mat-icon-button *ngIf="permises.add" (click)="addRolMenu()">
+                        <mat-icon>
+                            add_circle
+                        </mat-icon>
+                    </button></th>
+                <td mat-cell *matCellDef="let rolMenu">
+                    <button mat-icon-button *ngIf="permises.edit" (click)="editRolMenu(rolMenu)">
+                        <mat-icon>
+                            mode_edit
+                        </mat-icon>
+                    </button>
+                    <button mat-icon-button *ngIf="permises.delete" (click)="deleteRolMenu(rolMenu)">
+                        <mat-icon>
+                            delete
+                        </mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+
+</div>
+<!-- <router-outlet></router-outlet> -->

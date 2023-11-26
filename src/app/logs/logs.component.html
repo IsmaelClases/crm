@@ -1,0 +1,56 @@
+<div class="example-container mat-elevation-z8">
+    <div class="example-table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+            <ng-container matColumnDef="id_log">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idFilter" placeholder="ID">
+                    <span mat-sort-header></span>
+                </th>
+                
+                <td mat-cell *matCellDef="let log"> {{log.id_log}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fecha">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="fechaFilter" placeholder="Fecha">
+                    <span mat-sort-header></span>
+                </th>
+                
+                <td mat-cell *matCellDef="let log"> {{log.fecha}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="usuario">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="usuarioFilter" placeholder="Usuario">
+                    <span mat-sort-header></span>
+                </th>
+                
+                <td mat-cell *matCellDef="let log"> {{log.usuario}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="contenido">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="contenidoFilter" placeholder="Contenido">
+                    <span mat-sort-header></span>
+                </th>
+                
+                <td mat-cell *matCellDef="let log"> {{log.contenido}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="tipo_log">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="tipoLogFilter" placeholder="TipoLog">
+                    <span mat-sort-header></span>
+                </th>
+                
+                <td mat-cell *matCellDef="let log"> {{log.tipo_log}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+
+</div>

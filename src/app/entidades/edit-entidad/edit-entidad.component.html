@@ -1,0 +1,114 @@
+<div class="container">
+    <h3 mat-dialog-title>Editar {{ENTIDAD}}</h3>
+
+    <form class="mat-dialog-content" [formGroup]="entidadForm">
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="Entidad" formControlName="entidad" name="entidad" maxlength="100">
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="Código/CIF/NIF" formControlName="codigo" name="codigo" maxlength="100">
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Zona</mat-label>
+                <mat-select formControlName="id_zona">
+                    <mat-option value="">Sin zona</mat-option>
+                    <mat-option *ngFor="let idZ of zonas" [value]="idZ.id_zona">
+                        {{idZ.zona}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Dinamizador/a</mat-label>
+                <mat-select formControlName="id_contacto" required>
+                    <mat-option value="">Sin dinamizador/a</mat-option>
+                    <mat-option *ngFor="let idC of contactos" [value]="idC.id_contacto">
+                        {{idC.nombre_completo}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Tipo Entidad</mat-label>
+                <mat-select formControlName="id_tipo_entidad">
+                    <mat-option value="">Sin tipo entidad</mat-option>
+                    <mat-option *ngFor="let idTE of tipos_entidad" [value]="idTE.id_tipo_entidad">
+                        {{idTE.tipo_entidad}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="Dirección" formControlName="direccion" name="direccion" maxlength="100">
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="CP" formControlName="cp" name="cp" maxlength="100">
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="Localidad" formControlName="localidad" name="localidad" maxlength="100">
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Provincia</mat-label>
+                <mat-select formControlName="id_provincia">
+                    <mat-option value="">Sin provincia</mat-option>
+                    <mat-option *ngFor="let idP of provincias" [value]="idP.id_provincia">
+                        {{idP.provincia}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="Teléfono" formControlName="telefono" name="telefono" maxlength="100">
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="Email" formControlName="email" name="email" maxlength="100">
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="Web" formControlName="web" name="web" maxlength="100">
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <textarea matInput placeholder="Observaciones" formControlName="observaciones" name="Observaciones"></textarea>
+            </mat-form-field>
+        </div>
+
+        <div mat-dialog-actions>
+            <button mat-button id="onSubmit" type="submit" [disabled]="!entidadForm.valid" (click)="confirmEdit()">Guardar</button>
+            <button mat-button id="onNoClick" (click)="onNoClick()" tabindex="-1">Cancelar</button>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,49 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+      <ng-container matColumnDef="id_opcion_menu">
+        <th mat-header-cell *matHeaderCellDef>
+          <input matInput [formControl]="idFilter" placeholder="ID">
+          <span mat-sort-header></span>
+        </th>
+        <td mat-cell *matCellDef="let opcion"> {{opcion.id_opcion_menu}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="opcion">
+        <th mat-header-cell *matHeaderCellDef>
+          <input matInput [formControl]="opcionFilter" placeholder="Opcion">
+          <span mat-sort-header></span>
+        </th>
+        <td mat-cell *matCellDef="let opcion"> {{opcion.opcion}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> 
+          <button mat-icon-button *ngIf="permises.add" (click)="addOpcion()">
+            <mat-icon>
+             add_circle
+            </mat-icon>
+          </button>
+        </th>
+        <td mat-cell *matCellDef="let opcion">
+          <button mat-icon-button *ngIf="permises.edit" (click)="editOpcion(opcion)">
+            <mat-icon>
+             mode_edit
+            </mat-icon>
+          </button>
+          <button mat-icon-button *ngIf="permises.delete" (click)="deleteOpcion(opcion)">
+            <mat-icon>
+             delete
+            </mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+
+</div>
