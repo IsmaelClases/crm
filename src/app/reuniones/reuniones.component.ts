@@ -46,7 +46,7 @@ export class ReunionesComponent implements OnInit {
   idZonaFilter = new FormControl();
   idContactoFilter = new FormControl();
   fechaFilter = new FormControl();
-
+  
   selection: SelectionModel<Reunion>;
   reunion: Reunion;
 
@@ -95,7 +95,7 @@ export class ReunionesComponent implements OnInit {
       this.selection = new SelectionModel<Reunion>(false, [this.reunion]);
 
       this.onChanges();
-    }
+    }  
   }
 
   async addReunion() {
@@ -107,7 +107,7 @@ export class ReunionesComponent implements OnInit {
         this.ngOnInit();
         //this.datosReunion(reunion: Reunion);
       }
-    }
+    }  
   }
 
   // async editReunion(reunion: Reunion) {
@@ -117,7 +117,7 @@ export class ReunionesComponent implements OnInit {
   //     if (RESULT.ok) {
   //       this.ngOnInit();
   //     }
-  //   }
+  //   }  
   // }
 
   async deleteReunion(reunion: Reunion) {
@@ -167,12 +167,12 @@ export class ReunionesComponent implements OnInit {
           this.filterValues.id_reunion = value;
           this.dataSource.filter = JSON.stringify(this.filterValues);
       });
-
+  
       this.reunionFilter.valueChanges
       .subscribe(value => {
           this.filterValues.reunion = value;
           this.dataSource.filter = JSON.stringify(this.filterValues);
-      });
+      }); 
 
       this.idMotivoReunionFilter.valueChanges
       .subscribe(value => {
@@ -184,25 +184,25 @@ export class ReunionesComponent implements OnInit {
       .subscribe(value => {
           this.filterValues.id_entidad_target = value;
           this.dataSource.filter = JSON.stringify(this.filterValues);
-      });
+      }); 
 
       this.idZonaFilter.valueChanges
       .subscribe(value => {
           this.filterValues.id_zona = value;
           this.dataSource.filter = JSON.stringify(this.filterValues);
-      });
-
+      }); 
+      
       this.idContactoFilter.valueChanges
       .subscribe(value => {
           this.filterValues.id_contacto = value;
           this.dataSource.filter = JSON.stringify(this.filterValues);
       });
-
+  
       this.fechaFilter.valueChanges
       .subscribe(value => {
           this.filterValues.fecha = value;
           this.dataSource.filter = JSON.stringify(this.filterValues);
-      });
+      }); 
   }
 
   async printReunion(reunion: Reunion) {
@@ -246,7 +246,7 @@ export class ReunionesComponent implements OnInit {
           zonas: ZONA,
         }
       });
-
+      
       const RESULT = await dialogRef.afterClosed().toPromise();
       await this.getReuniones();
       /*

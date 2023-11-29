@@ -28,11 +28,12 @@ export class GruposComponent implements OnInit {
 
   idFilter = new FormControl();
   grupoFilter = new FormControl();
+  ordenFilter = new FormControl();
 
   permises: Permises;
 
   displayedColumns: string[];
-  private filterValues = { id_grupo_menu: '', grupo: '' };
+  private filterValues = { id_grupo_menu: '', grupo: '', orden: '' };
 
   constructor(
               public dialog: MatDialog,
@@ -50,7 +51,7 @@ export class GruposComponent implements OnInit {
 
     if (RESPONSE.ok) {
       this.gruposService.grupos = RESPONSE.data as Grupo[];
-      this.displayedColumns = ['id_grupo_menu', 'grupo', 'actions'];
+      this.displayedColumns = ['id_grupo_menu', 'grupo', 'orden', 'actions'];
       this.dataSource.data = this.gruposService.grupos;
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -115,6 +116,12 @@ export class GruposComponent implements OnInit {
     this.grupoFilter.valueChanges
     .subscribe(value => {
         this.filterValues.grupo = value;
+        this.dataSource.filter = JSON.stringify(this.filterValues);
+    });  
+
+    this.ordenFilter.valueChanges
+    .subscribe(value => {
+        this.filterValues.orden = value;
         this.dataSource.filter = JSON.stringify(this.filterValues);
     });  
   }

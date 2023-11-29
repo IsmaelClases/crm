@@ -1,49 +1,57 @@
 <div class="example-container mat-elevation-z8">
-  <div class="example-table-container">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+    <div class="example-table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
-      <ng-container matColumnDef="id_grupo_menu">
-        <th mat-header-cell *matHeaderCellDef >
-          <input matInput [formControl]="idFilter" placeholder="ID">
-          <span mat-sort-header></span>
-        </th>
-        <td mat-cell *matCellDef="let grupo"> {{grupo.id_grupo_menu}} </td>
-      </ng-container>
+            <ng-container matColumnDef="id_grupo_menu">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idFilter" placeholder="ID">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let grupo"> {{grupo.id_grupo_menu}} </td>
+            </ng-container>
 
-      <ng-container matColumnDef="grupo">
-        <th mat-header-cell *matHeaderCellDef >
-          <input matInput [formControl]="grupoFilter" placeholder="Grupo">
-          <span mat-sort-header></span>
-        </th>
-        <td mat-cell *matCellDef="let grupo"> {{grupo.grupo}} </td>
-      </ng-container>
+            <ng-container matColumnDef="grupo">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="grupoFilter" placeholder="Grupo">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let grupo"> {{grupo.grupo}} </td>
+            </ng-container>
 
-      <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> 
-          <button mat-icon-button *ngIf="permises.add" (click)="addGrupo()">
+            <ng-container matColumnDef="orden">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="ordenFilter" placeholder="Orden">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let grupo"> {{grupo.orden}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>
+                    <button mat-icon-button *ngIf="permises.add" (click)="addGrupo()">
             <mat-icon>
              add_circle
             </mat-icon>
           </button> </th>
-        <td mat-cell *matCellDef="let grupo">
-          <button mat-icon-button *ngIf="permises.edit" (click)="editGrupo(grupo)">
+                <td mat-cell *matCellDef="let grupo">
+                    <button mat-icon-button *ngIf="permises.edit" (click)="editGrupo(grupo)">
             <mat-icon>
              mode_edit
             </mat-icon>
           </button>
-          <button mat-icon-button *ngIf="permises.delete" (click)="deleteGrupo(grupo)">
+                    <button mat-icon-button *ngIf="permises.delete" (click)="deleteGrupo(grupo)">
             <mat-icon>
              delete
             </mat-icon>
           </button>
-        </td>
-      </ng-container>
+                </td>
+            </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </div>
-  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
 
 </div>
 <!-- <router-outlet></router-outlet> -->

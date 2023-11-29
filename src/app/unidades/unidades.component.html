@@ -1,0 +1,112 @@
+<div class="example-container mat-elevation-z8">
+    <div class="example-table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+            <ng-container matColumnDef="id_unidad">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idUnidadFilter" placeholder="Id">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let unidades"> {{unidades.id_unidad}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="fk_entidad">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idEntidadFilter" placeholder="Entidad">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let unidades"> {{unidades.fk_entidad}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="fk_ciclo">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idCicloFilter" placeholder="Ciclo">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let unidades"> {{unidades.fk_ciclo}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="unidad">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="unidadFilter" placeholder="Unidad">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let unidades"> {{unidades.unidad}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="plazas">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="plazasFilter" placeholder="Plazas">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let unidades"> {{unidades.plazas}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="fk_unidad_dual">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idUnidadDualFilter" placeholder="Dual?">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let unidades"> {{unidades.fk_unidad_dual}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="fk_motivo_nodual">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idMotivoNodualFilter" placeholder="Motivo no Dual">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let unidades"> {{unidades.fk_motivo_nodual}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="fk_zona">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idZonaFilter" placeholder="Zona">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let unidades"> {{unidades.fk_zona}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="fk_provincia">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idProvinciaFilter" placeholder="Provincia">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let unidades"> {{unidades.fk_provincia}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="fk_tipo_entidad">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idTipoEntidadFilter" placeholder="Tipo Entidad">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let unidades"> {{unidades.fk_tipo_entidad}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>
+                    <button mat-icon-button (click)="addUnidad()">
+			  <mat-icon>
+				add_circle
+			  </mat-icon>
+			</button>
+                </th>
+                <td mat-cell *matCellDef="let unidades">
+                    <button mat-icon-button (click)="editUnidad(unidades)">
+			  <mat-icon>
+				mode_edit
+			  </mat-icon>
+			</button>
+                    <button mat-icon-button (click)="deleteUnidad(unidades)">
+			  <mat-icon>
+				delete
+			  </mat-icon>
+			</button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{ 'selected': selection.isSelected(row)}" (click)="selection.select(row)" (dblclick)="editUnidad(row)"></tr>
+        </table>
+    </div>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+</div>

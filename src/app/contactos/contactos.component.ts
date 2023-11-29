@@ -6,8 +6,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { FormControl } from '@angular/forms';
 import { Permises } from '../shared/interfaces/api-response';
-import { combineLatest } from 'rxjs';
-import { startWith } from 'rxjs/operators';
 
 import { Contacto } from '../shared/interfaces/contacto';
 import { ContactosService } from '../services/contactos.service';

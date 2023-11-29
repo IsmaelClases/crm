@@ -1,0 +1,64 @@
+<div class="example-container mat-elevation-z8">
+    <div class="example-table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+            <ng-container matColumnDef="id_nivel">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idNivelFilter" placeholder="Id">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let niveles"> {{niveles.id_nivel}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="nivel">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="nivelFilter" placeholder="Nivel">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let niveles"> {{niveles.nivel}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="cod_nivel">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="codNivelFilter" placeholder="Cod Nivel">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let niveles"> {{niveles.cod_nivel}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="titulo">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="tituloFilter" placeholder="Título">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let niveles"> {{niveles.titulo}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>
+                    <button mat-icon-button (click)="addNivel()">
+                <mat-icon>
+                  add_circle
+                </mat-icon>
+              </button>
+                </th>
+                <td mat-cell *matCellDef="let motivosReunion">
+                    <button mat-icon-button (click)="editNivel(motivosReunion)">
+                <mat-icon>
+                  mode_edit
+                </mat-icon>
+              </button>
+                    <button mat-icon-button (click)="deleteNivel(motivosReunion)">
+                <mat-icon>
+                  delete
+                </mat-icon>
+              </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+</div>

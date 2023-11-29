@@ -1,0 +1,48 @@
+<div class="example-container mat-elevation-z8">
+    <div class="example-table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+            <ng-container matColumnDef="id_unidad_dual">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idUnidadDualFilter" placeholder="Id">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let unidadesDual"> {{unidadesDual.id_unidad_dual}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="unidad_dual">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="unidadDualFilter" placeholder="Unidad Dual">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let unidadesDual"> {{unidadesDual.unidad_dual}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>
+                    <button mat-icon-button (click)="addUnidadDual()">
+                <mat-icon>
+                  add_circle
+                </mat-icon>
+              </button>
+                </th>
+                <td mat-cell *matCellDef="let unidadesDual">
+                    <button mat-icon-button (click)="editUnidadDual(unidadesDual)">
+                <mat-icon>
+                  mode_edit
+                </mat-icon>
+              </button>
+                    <button mat-icon-button (click)="deleteUnidadDual(unidadesDual)">
+                <mat-icon>
+                  delete
+                </mat-icon>
+              </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+</div>

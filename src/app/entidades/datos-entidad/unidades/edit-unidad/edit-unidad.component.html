@@ -1,0 +1,66 @@
+<div class="container">
+    <h3 mat-dialog-title>Editar {{ENTIDAD}}</h3>
+
+    <form class="mat-dialog-content" [formGroup]="unidadForm">
+
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Ciclo</mat-label>
+                <mat-select formControlName="id_ciclo" required>
+                    <mat-option value="">Sin ciclo</mat-option>
+                    <mat-option *ngFor="let idC of ciclos" [value]="idC.id_ciclo">
+                        {{idC.ciclo}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="Unidad" formControlName="unidad" name="unidad" maxlength="100" required>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="Plazas" formControlName="plazas" name="plazas" maxlength="100" required>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field>
+                <mat-label>¿Unidad Dual?</mat-label>
+                <mat-select formControlName="id_unidad_dual" required (valueChange)="unidadDual($event)">
+                    <!-- <mat-option value="">Sin unidad dual</mat-option> -->
+                    <mat-option *ngFor="let idUD of unidades_dual" [value]="idUD.id_unidad_dual">
+                        {{idUD.unidad_dual}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form" *ngIf="!esDual">
+            <mat-form-field>
+                <mat-label>Motivo no Dual</mat-label>
+                <mat-select formControlName="id_motivo_nodual">
+                    <mat-option value="">Sin motivo no Dual</mat-option>
+                    <mat-option *ngFor="let idMN of motivos_nodual" [value]="idMN.id_motivo_nodual">
+                        {{idMN.motivo_nodual}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <textarea matInput placeholder="Observaciones" formControlName="observaciones" name="Observaciones"></textarea>
+            </mat-form-field>
+        </div>
+
+        <div mat-dialog-actions>
+            <button mat-button id="onSubmit" type="submit" [disabled]="!unidadForm.valid" (click)="confirmEdit()">Guardar</button>
+            <button mat-button id="onNoClick" (click)="onNoClick()" tabindex="-1">Cancelar</button>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,67 @@
+.mat-column-fk_entidad {
+    width: 15% !important;
+    padding-right: 2em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-fk_ciclo {
+    width: 20% !important;
+    padding-right: 1em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-unidad {
+    width: 6% !important;
+    padding-right: 4em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-plazas {
+    width: 6% !important;
+    padding-right: 4em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-fk_unidad_dual {
+    width: 8% !important;
+    padding-right: 3em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-fk_motivo_nodual {
+    width: 12% !important;
+    padding-right: 3em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-fk_zona {
+    width: 9% !important;
+    padding-right: 3em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-fk_provincia {
+    width: 9% !important;
+    padding-right: 3em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-fk_tipo_entidad {
+    width: 9% !important;
+    padding-right: 3em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-actions {
+    width: 4em !important;
+    padding-right: 0em !important;
+    word-wrap: break-word!important;
+}
+
+.selected .mat-cell.blanco {
+    color: rgb(255, 255, 255) !important;
+}
+
+.selected .mat-cell {
+    background-color: #726dfeaf;
+}

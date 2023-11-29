@@ -93,7 +93,6 @@ export class EditContactoComponent implements OnInit {
         this.dialogRef.close({ ok: RESPONSE.ok, data: RESPONSE.data });
       } else { this.snackBar.open(ERROR, CLOSE, { duration: 5000 }); }
     } else { this.snackBar.open(ERROR, CLOSE, { duration: 5000 }); }
-    console.log(this.contacto);
   }
 
   async getProvincias(){

@@ -1,0 +1,54 @@
+<div class="container">
+    <h3 mat-dialog-title>Editar {{ENTIDAD}}</h3>
+
+    <form class="mat-dialog-content" [formGroup]="cicloForm">
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="{{ENTIDAD}}" formControlName="ciclo" name="ciclo" maxlength="100" required>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="Cod Ciclo" formControlName="cod_ciclo" name="cod_ciclo" maxlength="100" required>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Nivel</mat-label>
+                <mat-select formControlName="id_nivel" required>
+                    <!-- <mat-option value="">Sin zona</mat-option> -->
+                    <mat-option *ngFor="let idN of niveles" [value]="idN.id_nivel">
+                        {{idN.nivel}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Familia Profesional</mat-label>
+                <mat-select formControlName="id_familia" required>
+                    <!-- <mat-option value="">Sin zona</mat-option> -->
+                    <mat-option *ngFor="let idF of familias" [value]="idF.id_familia">
+                        {{idF.familia}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field color="accent">
+                <textarea matInput placeholder="Observaciones" formControlName="observaciones" name="observaciones"></textarea>
+            </mat-form-field>
+        </div>
+
+        <div mat-dialog-actions>
+            <button mat-button id="onSubmit" type="submit" [disabled]="!cicloForm.valid" (click)="confirmEdit()">Guardar</button>
+            <button mat-button id="onNoClick" (click)="onNoClick()" tabindex="-1">Cancelar</button>
+        </div>
+
+    </form>
+</div>

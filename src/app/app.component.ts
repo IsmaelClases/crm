@@ -27,7 +27,7 @@ export class AppComponent {
       this.router.events.subscribe(async (event: RouterEvent) => {
         if (event instanceof NavigationStart) {
           // Navigation started.
-          console.log('cambio de url');
+          // console.log('cambio de url');
           this.rutaRelativa = event.url;
 
           const response = await this.authService.isAuthenticated(this.rutaRelativa);

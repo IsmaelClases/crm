@@ -4,7 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FamiliasService } from 'src/app/services/familias.service';
 import { Familia } from 'src/app/shared/interfaces/familia';
-import { CLOSE, ENTIDAD_MODO_REUNION, ERROR } from '../../shared/messages';
+import { CLOSE, ENTIDAD_FAMILIA, ERROR } from '../../shared/messages';
 
 
 @Component({
@@ -25,7 +25,7 @@ export class EditFamiliaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.ENTIDAD = ENTIDAD_MODO_REUNION;
+    this.ENTIDAD = ENTIDAD_FAMILIA;
     this.familiaForm = new FormGroup({
       id_familia: new FormControl(this.familia.id_familia, Validators.required),
       familia: new FormControl(this.familia.familia, Validators.required),

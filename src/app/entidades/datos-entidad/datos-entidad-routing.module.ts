@@ -20,8 +20,8 @@ const routes: Routes = [
     outlet: 'sidebar' 
   },
   { 
-    path: 'ciclos-entidad', 
-    loadChildren: () => import('./ciclos-entidad/ciclos-entidad.module').then(m => m.CiclosEntidadModule),
+    path: 'unidades', 
+    loadChildren: () => import('./unidades/unidades.module').then(m => m.UnidadesModule),
     outlet: 'sidebar' 
   },];
 @NgModule({

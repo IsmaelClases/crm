@@ -1,0 +1,54 @@
+.container {
+    //width: 55em;
+    // text-align: center;
+    padding-bottom: 10em;
+}
+
+.mat-dialog-content {
+    margin-left: 5%;
+}
+
+.mat-dialog-title {
+    text-align: center;
+}
+
+.mat-dialog-actions {
+    display: block;
+    text-align: center;
+}
+
+.mat-column-id_ciclo {
+    width: 35% !important;
+    padding-right: 1em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-unidad {
+    width: 10% !important;
+    padding-right: 4em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-plazas {
+    width: 10% !important;
+    padding-right: 4em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-id_unidad_dual {
+    width: 5% !important;
+    padding-right: 4em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-id_motivo_nodual {
+    width: 25% !important;
+    padding-right: 1em !important;
+    word-wrap: break-word!important;
+}
+
+.mat-column-actions {
+    width: 2em !important;
+    padding-right: 0em !important;
+    word-wrap: break-word!important;
+}

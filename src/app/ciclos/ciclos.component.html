@@ -1,0 +1,72 @@
+<div class="example-container mat-elevation-z8">
+    <div class="example-table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+            <ng-container matColumnDef="id_ciclo">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idCicloFilter" placeholder="Id">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let ciclos"> {{ciclos.id_ciclo}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="ciclo">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="cicloFilter" placeholder="Ciclo">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let ciclos"> {{ciclos.ciclo}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="cod_ciclo">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="codCicloFilter" placeholder="Cod Ciclo">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let ciclos"> {{ciclos.cod_ciclo}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="id_nivel">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idNivelFilter" placeholder="Nivel">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let ciclos"> {{ciclos.fk_nivel}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="id_familia">
+                <th mat-header-cell *matHeaderCellDef>
+                    <input matInput [formControl]="idFamiliaFilter" placeholder="Familia">
+                    <span mat-sort-header></span>
+                </th>
+                <td mat-cell *matCellDef="let ciclos"> {{ciclos.fk_familia}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>
+                    <button mat-icon-button (click)="addCiclo()">
+                <mat-icon>
+                  add_circle
+                </mat-icon>
+              </button>
+                </th>
+                <td mat-cell *matCellDef="let motivosReunion">
+                    <button mat-icon-button (click)="editCiclo(motivosReunion)">
+                <mat-icon>
+                  mode_edit
+                </mat-icon>
+              </button>
+                    <button mat-icon-button (click)="deleteCiclo(motivosReunion)">
+                <mat-icon>
+                  delete
+                </mat-icon>
+              </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </div>
+    <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+</div>
