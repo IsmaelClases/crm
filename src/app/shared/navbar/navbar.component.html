@@ -26,7 +26,7 @@
     <ul class="navbar-nav ulpermenu">
         <li *ngFor="let grupo of menu">
             <button class="opcionesNav" mat-button [matMenuTriggerFor]="app"
-                id="almacenarGrupo" (click)="almacenarGrupo(grupo.grupo)">{{grupo.grupo}}</button>
+                id="almacenarGrupo" (click)="almacenarGrupo(grupo.grupo)" (mouseover)="almacenarGrupo(grupo.grupo)" (mouseout)="avisa('salio')">{{grupo.grupo}}</button>
             <mat-menu #app>
                 <button mat-menu-item id="{{opcion.opcion}}" *ngFor="let opcion of grupo.opciones"
                     [matTooltip]="opcion.texto_tooltip" id="actualizarVistaNavbar" (click)="actualizarVistaNavbar(opcion.opcion)"

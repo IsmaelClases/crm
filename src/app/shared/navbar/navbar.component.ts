@@ -21,7 +21,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.username = localStorage.getItem('usuario');
+    this.username = localStorage.getItem('nombre_publico');
     this.grupo = localStorage.getItem('ultimoGrupo');
     this.vista = localStorage.getItem('ultimaOpcion');
   }
@@ -52,6 +52,10 @@ export class NavbarComponent implements OnInit {
     localStorage.setItem('ultimaOpcion', 'Perfil');
     this.router.navigate(['perfil']);
     this.ngOnInit();
+  }
+
+  avisa(texto){
+    console.log(texto)
   }
 
 }

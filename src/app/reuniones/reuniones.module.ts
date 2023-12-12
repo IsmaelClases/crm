@@ -14,8 +14,8 @@ import { DatosReunionModule } from './datos-reunion/datos-reunion.module';
 
 
 @NgModule({
-  declarations: [ReunionesComponent, AddReunionComponent, EditReunionComponent, DeleteReunionComponent, 
-    //AsistentesComponent, AddAsistenteComponent, DeleteAsistenteComponent 
+  declarations: [ReunionesComponent, AddReunionComponent, EditReunionComponent, DeleteReunionComponent,
+    //AsistentesComponent, AddAsistenteComponent, DeleteAsistenteComponent
   ],
   imports: [
     CommonModule,
