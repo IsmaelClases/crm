@@ -31,12 +31,14 @@ class Familia extends Conexion implements crud {
 
     public function create($data) {
         $familia = $data['familia'];
+        $cod_familia = $data['cod_familia'];
         $observaciones = $data['observaciones'];
 
         if (isset($familia)) {
-            $sql = $this->conexion->prepare("INSERT INTO sgi_familias (familia, observaciones)
-                    VALUES (:familia, :observaciones)");
+            $sql = $this->conexion->prepare("INSERT INTO sgi_familias (familia, cod_familia, observaciones)
+                    VALUES (:familia, :cod_familia, :observaciones)");
             $sql->bindParam(":familia", $familia, PDO::PARAM_STR);
+            $sql->bindParam(":cod_familia", $cod_familia, PDO::PARAM_STR);
             $sql->bindParam(":observaciones", $observaciones, PDO::PARAM_STR);
 
             $resultado = $sql->execute();
@@ -52,15 +54,18 @@ class Familia extends Conexion implements crud {
     public function update($data) {
         $idFamilia = $data['id_familia'];
         $familia = $data['familia'];
+        $cod_familia = $data['cod_familia'];
         $observaciones = $data['observaciones'];
 
         if (isset($familia)) {
             $sql = $this->conexion->prepare("UPDATE sgi_familias SET
                     familia = :familia,
+                    cod_familia = :cod_familia,
                     observaciones = :observaciones
                     WHERE id_familia = :idFamilia");
-            
+
             $sql->bindParam(":familia", $familia, PDO::PARAM_STR);
+            $sql->bindParam(":cod_familia", $cod_familia, PDO::PARAM_STR);
             $sql->bindParam(":observaciones", $observaciones, PDO::PARAM_STR);
             $sql->bindParam(":idFamilia", $idFamilia, PDO::PARAM_INT);
 

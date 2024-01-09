@@ -54,8 +54,4 @@ export class NavbarComponent implements OnInit {
     this.ngOnInit();
   }
 
-  avisa(texto){
-    console.log(texto)
-  }
-
 }

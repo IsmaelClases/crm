@@ -24,6 +24,7 @@ export class AddFamiliaComponent implements OnInit {
   ngOnInit(): void {
     this.familiaForm = new FormGroup({
       familia: new FormControl(null, Validators.required),
+      cod_familia: new FormControl(),
       observaciones: new FormControl(null)
     });
     this.ENTIDAD = ENTIDAD_FAMILIA;
@@ -47,5 +48,5 @@ export class AddFamiliaComponent implements OnInit {
 
   onNoClick() {
     this.dialogRef.close({ok: false});
-  }  
+  }
 }

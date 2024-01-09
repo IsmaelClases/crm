@@ -29,12 +29,13 @@ export class FamiliasComponent implements OnInit {
   dataSource: MatTableDataSource<Familia> = new MatTableDataSource();
 
   idFamiliaFilter = new FormControl();
+  codFamiliaFilter = new FormControl();
   familiaFilter = new FormControl();
 
   permises: Permises;
 
   displayedColumns: string[];
-  private filterValues = { id_familia: '', familia: '' };
+  private filterValues = { id_familia: '', cod_familia: '', familia: '' };
 
   constructor(
     public dialog: MatDialog,
@@ -46,20 +47,20 @@ export class FamiliasComponent implements OnInit {
     this.getFamilias();
   }
 
-  
+
   async getFamilias() {
     const RESPONSE = await this.familiasService.getAllFamilias().toPromise();
     this.permises = RESPONSE.permises;
 
     if (RESPONSE.ok) {
       this.familiasService.familia = RESPONSE.data as Familia[];
-      this.displayedColumns = ['id_familia', 'familia', 'actions'];
+      this.displayedColumns = ['id_familia', 'cod_familia', 'familia', 'actions'];
       this.dataSource.data = this.familiasService.familia;
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.dataSource.filterPredicate = this.createFilter();
       this.onChanges();
-    }  
+    }
   }
 
   async addFamilia() {
@@ -71,7 +72,7 @@ export class FamiliasComponent implements OnInit {
         //this.dataSource.data = this.familiasService.familia;
         this.ngOnInit();
       }
-    }  
+    }
   }
 
   async editFamilia(familia: Familia) {
@@ -83,7 +84,7 @@ export class FamiliasComponent implements OnInit {
         //this.dataSource.data = this.familiasService.familia;
         this.ngOnInit();
       }
-    }  
+    }
   }
 
   async deleteFamilia(familia: Familia) {
@@ -103,6 +104,7 @@ export class FamiliasComponent implements OnInit {
       const searchTerms = JSON.parse(filter);
 
       return familia.id_familia.toString().indexOf(searchTerms.id_familia) !== -1
+        && (familia.cod_familia || '').toLowerCase().indexOf(searchTerms.cod_familia.toLowerCase()) !== -1
         && familia.familia.toLowerCase().indexOf(searchTerms.familia.toLowerCase()) !== -1;
     };
 
@@ -116,11 +118,17 @@ export class FamiliasComponent implements OnInit {
         this.dataSource.filter = JSON.stringify(this.filterValues);
     });
 
+    this.codFamiliaFilter.valueChanges
+    .subscribe(value => {
+        this.filterValues.cod_familia = value;
+        this.dataSource.filter = JSON.stringify(this.filterValues);
+    });
+
     this.familiaFilter.valueChanges
     .subscribe(value => {
         this.filterValues.familia = value;
         this.dataSource.filter = JSON.stringify(this.filterValues);
-    });      
+    });
   }
 
 }
