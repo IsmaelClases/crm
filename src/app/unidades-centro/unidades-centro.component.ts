@@ -8,8 +8,6 @@ import { EditUnidadesCentroComponent } from './edit-unidades-centro/edit-unidade
 import { DeleteUnidadesCentroComponent } from './delete-unidades-centro/delete-unidades-centro.component';
 import { UnidadesCentroService } from '../services/unidades-centro.service';
 import { FormControl } from '@angular/forms';
-import { combineLatest } from 'rxjs';
-import { startWith } from 'rxjs/operators';
 import { Overlay } from '@angular/cdk/overlay';
 import { UnidadesCentro } from '../shared/interfaces/unidades-centro';
 import { Permises } from '../shared/interfaces/api-response';

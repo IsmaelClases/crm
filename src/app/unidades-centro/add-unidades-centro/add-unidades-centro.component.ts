@@ -25,9 +25,7 @@ export class AddUnidadesCentroComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Inicializa el formulario con los campos necesarios para una unidad centro
     this.unidadCentroForm = new FormGroup({
-      // Añade los campos requeridos y otros campos opcionales según sea necesario
       unidad_centro: new FormControl(null, Validators.required),
       id_ciclo: new FormControl(null, Validators.required),
       observaciones: new FormControl(null)
@@ -36,37 +34,27 @@ export class AddUnidadesCentroComponent implements OnInit {
   }
 
   async confirmAdd() {
-    // Verifica si el formulario es válido
     if (this.unidadCentroForm.valid) {
-      // Crea un objeto de tipo UnidadCentro con los valores del formulario
       const unidadCentro = this.unidadCentroForm.value as UnidadesCentro;
-
-      // Realiza la solicitud para agregar la unidad centro utilizando el servicio correspondiente
       const RESPONSE = await this.unidadesCentroService.addUnidadesCentro(unidadCentro).toPromise();
 
-      // Verifica la respuesta del servidor
       if (RESPONSE.ok) {
-        // Muestra un mensaje de éxito y cierra el diálogo pasando los datos agregados
         this.snackBar.open(RESPONSE.message, CLOSE, { duration: 5000 });
         this.dialogRef.close({ ok: RESPONSE.ok, data: RESPONSE.data });
       } else {
-        // Muestra un mensaje de error si la operación no fue exitosa
         this.snackBar.open(RESPONSE.message, CLOSE, { duration: 5000 });
       }
     } else {
-      // Muestra un mensaje si el formulario no es válido
       this.snackBar.open(INVALID_FORM, CLOSE, { duration: 5000 });
     }
   }
 
   onNoClick() {
-    // Cierra el diálogo indicando que la operación no fue exitosa
     this.dialogRef.close({ ok: false });
   }
 
   async getCiclos() {
     const RESPONSE = await this.ciclosService.getAllCiclos().toPromise();
-    //this.permises = RESPONSE.permises;
 
     if (RESPONSE.ok) {
       this.ciclos = RESPONSE.data as Ciclo[];
