@@ -5,6 +5,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { UnidadesCentro } from 'src/app/shared/interfaces/unidades-centro';
 import { UnidadesCentroService } from 'src/app/services/unidades-centro.service';
 import { CLOSE, INVALID_FORM } from '../../shared/messages';
+import { CiclosService } from '../../services/ciclos.service';
+import { Ciclo } from '../../shared/interfaces/ciclo';
+
 
 @Component({
   selector: 'app-edit-unidades-centro',
@@ -15,11 +18,13 @@ export class EditUnidadesCentroComponent implements OnInit {
 
   unidadesCentroForm: FormGroup;
   unidadCentro: UnidadesCentro;
+  ciclos: Ciclo[];
 
   constructor(
     public dialogRef: MatDialogRef<EditUnidadesCentroComponent>,
     private snackBar: MatSnackBar,
     private unidadesCentroService: UnidadesCentroService,
+    private ciclosService: CiclosService,
     @Inject(MAT_DIALOG_DATA) public data: UnidadesCentro
   ) {
     this.unidadCentro = { ...data };
@@ -27,9 +32,12 @@ export class EditUnidadesCentroComponent implements OnInit {
 
   ngOnInit() {
     this.unidadesCentroForm = new FormGroup({
-      id_unidad_centro: new FormControl(this.unidadCentro.id_unidad_centro, Validators.required),
+      id_unidad_centro:new FormControl(this.unidadCentro.id_unidad_centro),
       unidad_centro: new FormControl(this.unidadCentro.unidad_centro, Validators.required),
+      id_ciclo: new FormControl(this.unidadCentro.id_ciclo, Validators.required),
+      observaciones: new FormControl(this.unidadCentro.observaciones)
     });
+    this.getCiclos();
   }
 
   async confirmEdit() {
@@ -56,5 +64,14 @@ export class EditUnidadesCentroComponent implements OnInit {
 
   onNoClick() {
     this.dialogRef.close({ ok: false });
+  }
+
+  async getCiclos() {
+    const RESPONSE = await this.ciclosService.getAllCiclos().toPromise();
+    //this.permises = RESPONSE.permises;
+
+    if (RESPONSE.ok) {
+      this.ciclos = RESPONSE.data as Ciclo[];
+    }
   }
 }

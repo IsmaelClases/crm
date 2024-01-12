@@ -19,10 +19,10 @@ class UnidadesCentro extends Conexion implements CRUD
     // Obtener todos los registros de la tabla sgi_unidades_centro
     public function get()
     {
-        $order = " ORDER BY unidad_centro ";
+        $order = " ORDER BY uc.unidad_centro ";
 
         $sql = $this->conexion->prepare(
-            "SELECT * FROM sgi_unidades_centro " . $order
+            "SELECT uc.*, c.ciclo FROM sgi_unidades_centro uc INNER JOIN sgi_ciclos c ON  uc.id_ciclo = c.id_ciclo" . $order
         );
 
         $exito = $sql->execute();

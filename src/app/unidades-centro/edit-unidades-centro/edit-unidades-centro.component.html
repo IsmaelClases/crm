@@ -1,21 +1,35 @@
 <div class="container">
     <h3 mat-dialog-title>Editar Unidades Centro</h3>
-  
+
     <form class="mat-dialog-content" [formGroup]="unidadesCentroForm">
-  
+
       <div class="form">
         <mat-form-field color="accent">
-          <input matInput placeholder="Unidad Centro" formControlName="unidad_centro" name="unidad_centro" maxlength="100" required>
+            <input matInput placeholder="Unidad Centro" formControlName="unidad_centro" name="unidad_centro" maxlength="100" required>
         </mat-form-field>
-      </div>
-  
-      <!-- Agrega más campos según la estructura de tu entidad UnidadesCentro -->
-  
+    </div>
+
+    <div class="form">
+      <mat-form-field>
+          <mat-select formControlName="id_ciclo" placeholder="Nombre Ciclo">
+              <mat-option *ngFor="let ciclo of ciclos" [value]="ciclo.id_ciclo">
+                  {{ ciclo.ciclo }}
+              </mat-option>
+          </mat-select>
+      </mat-form-field>
+  </div>
+
+    <div class="form">
+        <mat-form-field color="accent">
+            <textarea matInput placeholder="Observaciones" formControlName="observaciones"
+                name="observaciones"></textarea>
+        </mat-form-field>
+    </div>
+
       <div mat-dialog-actions>
         <button mat-button id="onSubmit" type="submit" [disabled]="!unidadesCentroForm.valid" (click)="confirmEdit()">Guardar</button>
         <button mat-button id="onNoClick" (click)="onNoClick()" tabindex="-1">Cancelar</button>
       </div>
-  
+
     </form>
   </div>
-  

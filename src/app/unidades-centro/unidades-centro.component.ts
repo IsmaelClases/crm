@@ -26,16 +26,14 @@ export class UnidadesCentroComponent implements OnInit {
 
   dataSource: MatTableDataSource<UnidadesCentro> = new MatTableDataSource();
 
-  idFilter = new FormControl();
   unidadCentroFilter = new FormControl();
   cicloFilter = new FormControl();
-  entidadFilter = new FormControl();
   observacionesFilter = new FormControl();
 
   permises: Permises;
 
   displayedColumns: string[];
-  private filterValues = { id_unidad_centro: '', unidad_centro: '', id_ciclo: '', id_entidad: '', observaciones: '' };
+  private filterValues = {unidad_centro: '', cicloFilter: '', observaciones: '' };
 
   constructor(
     public dialog: MatDialog,
@@ -53,7 +51,7 @@ export class UnidadesCentroComponent implements OnInit {
 
     if (RESPONSE.ok) {
       this.unidadesCentroService.unidadesCentro = RESPONSE.data as UnidadesCentro[];
-      this.displayedColumns = ['id_unidad_centro', 'unidad_centro', 'id_ciclo', 'id_entidad', 'observaciones', 'actions'];
+      this.displayedColumns = ['unidad_centro', 'ciclo', 'observaciones', 'actions'];
       this.dataSource.data = this.unidadesCentroService.unidadesCentro;
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -100,10 +98,8 @@ export class UnidadesCentroComponent implements OnInit {
     const filterFunction = (unidadCentro: UnidadesCentro, filter: string): boolean => {
       const searchTerms = JSON.parse(filter);
 
-      return unidadCentro.id_unidad_centro.toString().indexOf(searchTerms.id_unidad_centro) !== -1
-        && unidadCentro.unidad_centro.toLowerCase().indexOf(searchTerms.unidad_centro.toLowerCase()) !== -1
-        && unidadCentro.id_ciclo.toString().indexOf(searchTerms.id_ciclo) !== -1
-        && unidadCentro.id_entidad.toString().indexOf(searchTerms.id_entidad) !== -1
+      return unidadCentro.unidad_centro.toLowerCase().indexOf(searchTerms.unidad_centro.toLowerCase()) !== -1
+        && unidadCentro.ciclo.toLowerCase().indexOf(searchTerms.cicloFilter.toLowerCase()) !== -1
         && (unidadCentro.observaciones || '').toLowerCase().indexOf(searchTerms.observaciones.toLowerCase()) !== -1;
     };
 
@@ -111,24 +107,13 @@ export class UnidadesCentroComponent implements OnInit {
   }
 
   onChanges(): void {
-    this.idFilter.valueChanges.subscribe(value => {
-      console.log(this.permises)
-      this.filterValues.id_unidad_centro = value;
-      this.dataSource.filter = JSON.stringify(this.filterValues);
-    });
-
     this.unidadCentroFilter.valueChanges.subscribe(value => {
       this.filterValues.unidad_centro = value;
       this.dataSource.filter = JSON.stringify(this.filterValues);
     });
 
     this.cicloFilter.valueChanges.subscribe(value => {
-      this.filterValues.id_ciclo = value;
-      this.dataSource.filter = JSON.stringify(this.filterValues);
-    });
-
-    this.entidadFilter.valueChanges.subscribe(value => {
-      this.filterValues.id_entidad = value;
+      this.filterValues.cicloFilter = value;
       this.dataSource.filter = JSON.stringify(this.filterValues);
     });
 

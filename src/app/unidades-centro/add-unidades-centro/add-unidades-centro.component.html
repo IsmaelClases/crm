@@ -5,9 +5,19 @@
 
         <div class="form">
             <mat-form-field color="accent">
-                <input matInput placeholder="Unidad" formControlName="unidad" name="unidad" maxlength="100" required>
+                <input matInput placeholder="Unidad Centro" formControlName="unidad_centro" name="unidad_centro" maxlength="5" required>
             </mat-form-field>
         </div>
+
+        <div class="form">
+          <mat-form-field>
+              <mat-select formControlName="id_ciclo" placeholder="Nombre Ciclo">
+                  <mat-option *ngFor="let ciclo of ciclos" [value]="ciclo.id_ciclo">
+                      {{ ciclo.ciclo }}
+                  </mat-option>
+              </mat-select>
+          </mat-form-field>
+      </div>
 
         <div class="form">
             <mat-form-field color="accent">

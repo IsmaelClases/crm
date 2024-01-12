@@ -5,6 +5,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UnidadesCentro } from 'src/app/shared/interfaces/unidades-centro';
 import { CLOSE, INVALID_FORM } from '../../shared/messages';
+import { CiclosService } from '../../services/ciclos.service';
+import { Ciclo } from '../../shared/interfaces/ciclo';
 
 @Component({
   selector: 'app-add-unidades-centro',
@@ -13,20 +15,24 @@ import { CLOSE, INVALID_FORM } from '../../shared/messages';
 })
 export class AddUnidadesCentroComponent implements OnInit {
   unidadCentroForm: FormGroup;
+  ciclos: Ciclo[];
 
   constructor(
     public dialogRef: MatDialogRef<AddUnidadesCentroComponent>,
     private snackBar: MatSnackBar,
-    private unidadesCentroService: UnidadesCentroService
+    private unidadesCentroService: UnidadesCentroService,
+    private ciclosService: CiclosService
   ) {}
 
   ngOnInit() {
     // Inicializa el formulario con los campos necesarios para una unidad centro
     this.unidadCentroForm = new FormGroup({
       // Añade los campos requeridos y otros campos opcionales según sea necesario
-      unidad: new FormControl(null, Validators.required),
+      unidad_centro: new FormControl(null, Validators.required),
+      id_ciclo: new FormControl(null, Validators.required),
       observaciones: new FormControl(null)
     });
+    this.getCiclos();
   }
 
   async confirmAdd() {
@@ -56,5 +62,14 @@ export class AddUnidadesCentroComponent implements OnInit {
   onNoClick() {
     // Cierra el diálogo indicando que la operación no fue exitosa
     this.dialogRef.close({ ok: false });
+  }
+
+  async getCiclos() {
+    const RESPONSE = await this.ciclosService.getAllCiclos().toPromise();
+    //this.permises = RESPONSE.permises;
+
+    if (RESPONSE.ok) {
+      this.ciclos = RESPONSE.data as Ciclo[];
+    }
   }
 }

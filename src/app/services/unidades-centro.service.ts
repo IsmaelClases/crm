@@ -45,6 +45,6 @@ export class UnidadesCentroService {
 
   // Eliminar una unidad centro por su ID
   deleteUnidadesCentro(id: number|string) {
-    return this.http.delete<ApiResponse>(`${URL_API}/${ENDPOINT}.php?id=${id}`, {headers: this.commonService.headers });
+    return this.http.delete<ApiResponse>(`${URL_API}/${ENDPOINT}.php?id_unidad_centro=${id}`, {headers: this.commonService.headers });
   }
 }
