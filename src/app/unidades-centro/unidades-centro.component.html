@@ -1,0 +1,73 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+      <ng-container matColumnDef="id_unidad_centro">
+        <th mat-header-cell *matHeaderCellDef>
+          <input matInput [formControl]="idFilter" placeholder="ID">
+          <span mat-sort-header></span>
+        </th>
+        <td mat-cell *matCellDef="let unidadCentro"> {{unidadCentro.id_unidad_centro}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="unidad_centro">
+        <th mat-header-cell *matHeaderCellDef>
+          <input matInput [formControl]="unidadCentroFilter" placeholder="Unidad Centro">
+          <span mat-sort-header></span>
+        </th>
+        <td mat-cell *matCellDef="let unidadCentro"> {{unidadCentro.unidad_centro}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="id_ciclo">
+        <th mat-header-cell *matHeaderCellDef>
+          <input matInput [formControl]="cicloFilter" placeholder="Ciclo">
+          <span mat-sort-header></span>
+        </th>
+        <td mat-cell *matCellDef="let unidadCentro"> {{unidadCentro.id_ciclo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="id_entidad">
+        <th mat-header-cell *matHeaderCellDef>
+          <input matInput [formControl]="entidadFilter" placeholder="Entidad">
+          <span mat-sort-header></span>
+        </th>
+        <td mat-cell *matCellDef="let unidadCentro"> {{unidadCentro.id_entidad}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="observaciones">
+        <th mat-header-cell *matHeaderCellDef>
+          <input matInput [formControl]="observacionesFilter" placeholder="Observaciones">
+          <span mat-sort-header></span>
+        </th>
+        <td mat-cell *matCellDef="let unidadCentro"> {{unidadCentro.observaciones}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>
+          <button mat-icon-button (click)="addUnidadesCentro()">
+            <mat-icon>
+              add_circle
+            </mat-icon>
+          </button>
+        </th>
+        <td mat-cell *matCellDef="let unidadCentro">
+          <button mat-icon-button (click)="editUnidadesCentro(unidadCentro)">
+            <mat-icon>
+              mode_edit
+            </mat-icon>
+          </button>
+          <button mat-icon-button (click)="deleteUnidadesCentro(unidadCentro)">
+            <mat-icon>
+              delete
+            </mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+
+</div>

@@ -41,7 +41,7 @@ class Navegacion extends Conexion
 
   private function getGrupos($token)
   {
-    $sql = $this->conexion->prepare("SELECT DISTINCT grupo FROM sgi_vista_rol_menu WHERE id_rol = (SELECT id_rol FROM sgi_usuarios WHERE token_sesion = :token) ");
+    $sql = $this->conexion->prepare("SELECT DISTINCT grupo, orden FROM sgi_vista_rol_menu WHERE id_rol = (SELECT id_rol FROM sgi_usuarios WHERE token_sesion = :token) ORDER BY orden");
     $sql->bindParam(":token", $token, PDO::PARAM_STR);
     $exito = $sql->execute();
 
