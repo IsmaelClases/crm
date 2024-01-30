@@ -7,6 +7,7 @@ import { AddUnidadesCentroComponent } from './add-unidades-centro/add-unidades-c
 import { EditUnidadesCentroComponent } from './edit-unidades-centro/edit-unidades-centro.component';
 import { DeleteUnidadesCentroComponent } from './delete-unidades-centro/delete-unidades-centro.component';
 import { CrudMaterialModule } from '../modules/crud-material/crud-material.module';
+import { DatosUnidadCentroModule } from './datos-unidad-centro/datos-unidad-centro.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { CrudMaterialModule } from '../modules/crud-material/crud-material.modul
     CommonModule,
     UnidadesCentroRoutingModule,
     CrudMaterialModule,
+    DatosUnidadCentroModule
   ],
   entryComponents: [
     AddUnidadesCentroComponent,

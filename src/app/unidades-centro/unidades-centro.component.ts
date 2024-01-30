@@ -11,6 +11,7 @@ import { FormControl } from '@angular/forms';
 import { Overlay } from '@angular/cdk/overlay';
 import { UnidadesCentro } from '../shared/interfaces/unidades-centro';
 import { Permises } from '../shared/interfaces/api-response';
+import { DatosUnidadCentroComponent } from './datos-unidad-centro/datos-unidad-centro.component';
 
 @Component({
   selector: 'app-unidades-centro',
@@ -89,6 +90,27 @@ export class UnidadesCentroComponent implements OnInit {
         this.unidadesCentroService.deleteUnidadesCentro(RESULT.data);
         this.dataSource.data = this.unidadesCentroService.unidadesCentro;
       }
+    }
+  }
+
+  async datosUnidadCentro(unidadCentro: UnidadesCentro) {
+    const UNIDAD_CENTRO = unidadCentro
+    const ALUMNOS = ['aaa', 'bbbb'] //TEMPORAL
+
+    if (UNIDAD_CENTRO){
+      const dialogRef = this.dialog.open(DatosUnidadCentroComponent, {
+        width: '70em',
+        maxWidth: '70em',
+        scrollStrategy: this.overlay.scrollStrategies.noop(),
+        disableClose: true,
+        data: {
+          unidadCentro: UNIDAD_CENTRO,
+          alumnos: ALUMNOS
+        }
+      });
+      
+      const RESULT = await dialogRef.afterClosed().toPromise();
+      await this.getUnidadesCentro();
     }
   }
 

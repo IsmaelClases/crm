@@ -13,8 +13,21 @@ const ENDPOINT = 'unidades_centro';
 export class UnidadesCentroService {
 
   unidadesCentro: UnidadesCentro[];
+  unidadCentro: UnidadesCentro;
 
   constructor(private http: HttpClient, private commonService: CommonService) { }
+
+  setUnidadCentro(unidadCentro: UnidadesCentro) {
+    this.unidadCentro = unidadCentro
+  }
+  
+  setDatosBasicosUnidadCentro(formUnidadCentro: any){
+    this.unidadCentro.id_unidad_centro = formUnidadCentro.id_unidad_centro;
+    this.unidadCentro.unidad_centro = formUnidadCentro.unidad_centro;
+    this.unidadCentro.id_ciclo = formUnidadCentro.id_ciclo;
+    this.unidadCentro.ciclo = formUnidadCentro.ciclo;
+    this.unidadCentro.observaciones = formUnidadCentro.observaciones;
+  }
 
   // Obtener todas las unidades centro
   get() {

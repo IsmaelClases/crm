@@ -1,0 +1,60 @@
+<div class="container">
+  <h3 mat-dialog-title>Editar Alumno</h3>
+
+  <form class="mat-dialog-content" [formGroup]="alumnoForm">
+
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Nombre" formControlName="nombre" maxlength="100" required>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Apellidos" formControlName="apellidos" maxlength="100" required>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Fecha de Nacimiento" formControlName="fecha_nacimiento" type="date" required>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="LinkedIn" formControlName="linkedin" maxlength="100" required>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Nivel de Inglés" formControlName="nivel_ingles" maxlength="100" required>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Minusvalía" formControlName="minusvalia" maxlength="100" required>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Otra Formación" formControlName="otra_formacion" maxlength="100">
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field>
+        <input matInput placeholder="Centro Actual" formControlName="centro_actual" maxlength="100" required>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-button id="onSubmit" type="submit" [disabled]="!alumnoForm.valid" (click)="confirmEdit()">Guardar</button>
+      <button mat-button id="onNoClick" (click)="onNoClick()" tabindex="-1">Cancelar</button>
+    </div>
+
+  </form>
+</div>
