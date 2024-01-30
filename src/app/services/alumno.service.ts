@@ -34,7 +34,7 @@ export class AlumnoService {
   }
 
   // Obtener todos los alumnos
-  get(idCentro: string) {
+  get(idCentro: number) {
     return this.http.get<ApiResponse>(`${URL_API}/${ENDPOINT}.php?centro_actual=${idCentro}`, { headers: this.commonService.headers });
   }
 

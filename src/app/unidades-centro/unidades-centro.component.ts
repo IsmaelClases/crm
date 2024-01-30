@@ -95,7 +95,6 @@ export class UnidadesCentroComponent implements OnInit {
 
   async datosUnidadCentro(unidadCentro: UnidadesCentro) {
     const UNIDAD_CENTRO = unidadCentro
-    const ALUMNOS = ['aaa', 'bbbb'] //TEMPORAL
 
     if (UNIDAD_CENTRO){
       const dialogRef = this.dialog.open(DatosUnidadCentroComponent, {
@@ -103,12 +102,9 @@ export class UnidadesCentroComponent implements OnInit {
         maxWidth: '90%',
         scrollStrategy: this.overlay.scrollStrategies.noop(),
         disableClose: true,
-        data: {
-          unidadCentro: UNIDAD_CENTRO,
-          alumnos: ALUMNOS
-        }
+        data: UNIDAD_CENTRO
       });
-      
+
       const RESULT = await dialogRef.afterClosed().toPromise();
       await this.getUnidadesCentro();
     }

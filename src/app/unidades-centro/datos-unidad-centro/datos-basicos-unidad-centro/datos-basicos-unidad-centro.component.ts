@@ -22,7 +22,7 @@ export class DatosBasicosUnidadCentroComponent implements OnInit {
     public unidadCentroService: UnidadesCentroService,
     private ciclosService: CiclosService,
   ) {
-    this.unidadCentro = datosUnidadCentro.datosEditarUnidadCentro.unidadCentro
+    this.unidadCentro = datosUnidadCentro.datosEditarUnidadCentro
   }
 
   ngOnInit(): void {

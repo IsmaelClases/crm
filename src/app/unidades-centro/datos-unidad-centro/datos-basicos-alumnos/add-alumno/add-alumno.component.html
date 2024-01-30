@@ -23,9 +23,7 @@
 
         <div class="form">
             <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="Fecha de Nacimiento" formControlName="fecha_nacimiento" name="fecha_nacimiento" required>
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
+              <input type="date" matInput placeholder="Fecha" formControlName="fecha_nacimiento" name="fecha_nacimiento" maxlength="100" required>
             </mat-form-field>
         </div>
 
@@ -57,12 +55,6 @@
         <div class="form">
             <mat-form-field color="accent">
                 <textarea matInput placeholder="Otra Formación" formControlName="otra_formacion" name="otra_formacion"></textarea>
-            </mat-form-field>
-        </div>
-
-        <div class="form">
-            <mat-form-field color="accent">
-                <input matInput type="number" placeholder="Centro Actual" formControlName="centro_actual" name="centro_actual" required>
             </mat-form-field>
         </div>
 

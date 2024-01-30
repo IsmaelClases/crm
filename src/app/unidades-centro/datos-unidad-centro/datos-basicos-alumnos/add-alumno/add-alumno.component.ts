@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlumnoService } from 'src/app/services/alumno.service';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Alumno } from 'src/app/shared/interfaces/alumno';
 import { CLOSE, INVALID_FORM } from 'src/app/shared/messages';
@@ -17,7 +17,8 @@ export class AddAlumnoComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<AddAlumnoComponent>,
     private snackBar: MatSnackBar,
-    private alumnoService: AlumnoService
+    private alumnoService: AlumnoService,
+    @Inject(MAT_DIALOG_DATA) public centro_actual: number
   ) {}
 
   ngOnInit() {
@@ -30,12 +31,14 @@ export class AddAlumnoComponent implements OnInit {
       nivel_ingles: new FormControl(null, Validators.required),
       minusvalia: new FormControl(null, Validators.required),
       otra_formacion: new FormControl(null),
-      centro_actual: new FormControl(null, Validators.required)
+      centro_actual: new FormControl(this.centro_actual)
     });
+    console.log('aaa'+this.centro_actual)
   }
 
   async confirmAdd() {
     if (this.alumnoForm.valid) {
+      //agregar centro al formulario
       const alumno = this.alumnoForm.value as Alumno;
       const RESPONSE = await this.alumnoService.addAlumno(alumno).toPromise();
 

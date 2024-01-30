@@ -4,8 +4,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivationStart, Router, RouterOutlet } from '@angular/router';
 import { UnidadesCentroService } from 'src/app/services/unidades-centro.service';
-import { DatosEditarUnidadCentro } from 'src/app/shared/interfaces/datos-editar-unidad-centro';
 import { CLOSE } from '../../shared/messages';
+import { UnidadesCentro } from 'src/app/shared/interfaces/unidades-centro';
 
 @Component({
   selector: 'app-datos-unidad-centro',
@@ -21,7 +21,7 @@ export class DatosUnidadCentroComponent implements OnInit {
 
   constructor(
     private router: Router,
-    @Inject(MAT_DIALOG_DATA) public datosEditarUnidadCentro: DatosEditarUnidadCentro,
+    @Inject(MAT_DIALOG_DATA) public datosEditarUnidadCentro: UnidadesCentro,
     private unidadesCentroService: UnidadesCentroService,
     private snackBar: MatSnackBar,
     public dialogRef: MatDialogRef<DatosUnidadCentroComponent>,
@@ -35,11 +35,10 @@ export class DatosUnidadCentroComponent implements OnInit {
     this.router.events.subscribe(e => {
       if (e instanceof ActivationStart && e.snapshot.outlet !== this.lastRoute) {
         this.lastRoute = this.rutaSeleccionada;
-        //INVESTIGAR PORQUE NO FUNCIONA
-        //this.outlet.deactivate();
+        this.outlet.deactivate();
       }
     });
-    this.unidadesCentroService.setUnidadCentro(this.datosEditarUnidadCentro.unidadCentro)
+    this.unidadesCentroService.setUnidadCentro(this.datosEditarUnidadCentro)
   }
 
   navega(ruta: string) {
@@ -50,13 +49,13 @@ export class DatosUnidadCentroComponent implements OnInit {
     const RESPONSE = await this.unidadesCentroService.editUnidadesCentro(this.unidadesCentroService.unidadCentro).toPromise();
     if (RESPONSE.ok){
       this.snackBar.open(RESPONSE.message, CLOSE, { duration: 5000 });
-      this.dialogRef.close({ok: RESPONSE.ok, unidadCentro: this.datosEditarUnidadCentro.unidadCentro})
+      this.dialogRef.close({ok: RESPONSE.ok, unidadCentro: this.datosEditarUnidadCentro})
     } else {
       this.snackBar.open(RESPONSE.message, CLOSE, { duration: 5000 });
     }
   }
 
   onNoClick() {
-    this.dialogRef.close({unidadCentro: this.datosEditarUnidadCentro.unidadCentro});
+    this.dialogRef.close({unidadCentro: this.datosEditarUnidadCentro});
   }
 }

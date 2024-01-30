@@ -11,7 +11,7 @@ export interface Alumno {
     id: string;
     nombre: string;
     apellidos: string;
-    fecha_nacimiento: string;
+    fecha_nacimiento: Date;
     linkedin: string;
     nivel_ingles: NivelIngles;
     minusvalia: number;
