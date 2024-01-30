@@ -99,8 +99,8 @@ export class UnidadesCentroComponent implements OnInit {
 
     if (UNIDAD_CENTRO){
       const dialogRef = this.dialog.open(DatosUnidadCentroComponent, {
-        width: '70em',
-        maxWidth: '70em',
+        width: '90%',
+        maxWidth: '90%',
         scrollStrategy: this.overlay.scrollStrategies.noop(),
         disableClose: true,
         data: {

@@ -8,6 +8,6 @@ mat-nav-list {
     height: 37em;
 }
 
-mat-sidenav-content {
-    width: 100%;
+mat-sidenav-content{
+    max-width: 90% !important;
 }

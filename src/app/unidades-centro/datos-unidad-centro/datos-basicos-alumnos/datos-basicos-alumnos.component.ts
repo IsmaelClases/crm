@@ -7,6 +7,9 @@ import { FormControl } from '@angular/forms';
 import { Overlay } from '@angular/cdk/overlay';
 import { AlumnoService } from 'src/app/services/alumno.service';
 import { Alumno } from 'src/app/shared/interfaces/alumno';
+import { AddAlumnoComponent } from './add-alumno/add-alumno.component'; // Reemplazar con la ruta correcta
+import { EditAlumnoComponent } from './edit-alumno/edit-alumno.component'; // Reemplazar con la ruta correcta
+import { DeleteAlumnoComponent } from './delete-alumno/delete-alumno.component'; // Reemplazar con la ruta correcta
 
 @Component({
   selector: 'app-datos-basicos-alumnos',
@@ -27,8 +30,6 @@ export class DatosBasicosAlumnosComponent implements OnInit {
   otraFormacionFilter = new FormControl();
 
   displayedColumns: string[];
-  
-  idCentro: string = '2'; //REEMPLAZAR LUEGO
 
   private filterValues = { 
     nombre: '', 
@@ -46,7 +47,7 @@ export class DatosBasicosAlumnosComponent implements OnInit {
 
   ngOnInit() {
     //this.getAlumnos(idCentro);
-    this.getAlumnos('2');
+    this.getAlumnos('2'); // Reemplazar '2' con la lógica adecuada
   }
 
   async getAlumnos(idCentro: string) {
@@ -72,7 +73,7 @@ export class DatosBasicosAlumnosComponent implements OnInit {
         && alumno.apellidos.toLowerCase().indexOf(searchTerms.apellidos.toLowerCase()) !== -1
         && (alumno.nivel_ingles || '').toLowerCase().indexOf(searchTerms.nivel_ingles.toLowerCase()) !== -1
         && (alumno.minusvalia || '').toString().indexOf(searchTerms.minusvalia) !== -1
-        && (alumno.otra_formacion || '').toLowerCase().indexOf(searchTerms.otra_formacion.toLowerCase()) !== -1
+        && (alumno.otra_formacion || '').toLowerCase().indexOf(searchTerms.otra_formacion.toLowerCase()) !== -1;
     };
 
     return filterFunction;
@@ -103,5 +104,41 @@ export class DatosBasicosAlumnosComponent implements OnInit {
       this.filterValues.otra_formacion = value;
       this.dataSource.filter = JSON.stringify(this.filterValues);
     });
+  }
+
+  async addAlumno() {
+    const dialogRef = this.dialog.open(AddAlumnoComponent, { scrollStrategy: this.overlay.scrollStrategies.noop() });
+    const result = await dialogRef.afterClosed().toPromise();
+
+    if (result) {
+      if (result.ok) {
+        this.alumnoService.alumnos.push(result.data);
+        this.dataSource.data = this.alumnoService.alumnos;
+      }
+    }
+  }
+
+  async editAlumno(alumno: Alumno) {
+    const dialogRef = this.dialog.open(EditAlumnoComponent, { data: alumno, scrollStrategy: this.overlay.scrollStrategies.noop() });
+    const result = await dialogRef.afterClosed().toPromise();
+
+    if (result) {
+      if (result.ok) {
+        // Implementar la edición en el servicio si es necesario
+        this.dataSource.data = this.alumnoService.alumnos;
+      }
+    }
+  }
+
+  async deleteAlumno(alumno: Alumno) {
+    const dialogRef = this.dialog.open(DeleteAlumnoComponent, { data: alumno, scrollStrategy: this.overlay.scrollStrategies.noop() });
+    const result = await dialogRef.afterClosed().toPromise();
+
+    if (result) {
+      if (result.ok) {
+        // Implementar la eliminación en el servicio si es necesario
+        this.dataSource.data = this.alumnoService.alumnos;
+      }
+    }
   }
 }

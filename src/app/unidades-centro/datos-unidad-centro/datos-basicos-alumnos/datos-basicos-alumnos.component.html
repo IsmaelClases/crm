@@ -44,19 +44,19 @@
 
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>
-          <button mat-icon-button (click)="addUnidadesCentro()">
+          <button mat-icon-button (click)="addAlumno()">
             <mat-icon>
               add_circle
             </mat-icon>
           </button>
         </th>
         <td mat-cell *matCellDef="let alumno">
-          <button mat-icon-button (click)="editUnidadesCentro(alumno)">
+          <button mat-icon-button (click)="editAlumno(alumno)">
             <mat-icon>
               mode_edit
             </mat-icon>
           </button>
-          <button mat-icon-button (click)="deleteUnidadesCentro(alumno)">
+          <button mat-icon-button (click)="deleteAlumno(alumno)">
             <mat-icon>
               delete
             </mat-icon>
