@@ -45,12 +45,6 @@
       </mat-form-field>
     </div>
 
-    <div class="form">
-      <mat-form-field>
-        <input matInput placeholder="Centro Actual" formControlName="centro_actual" maxlength="100" required>
-      </mat-form-field>
-    </div>
-
     <div mat-dialog-actions>
       <button mat-button id="onSubmit" type="submit" [disabled]="!alumnoForm.valid" (click)="confirmEdit()">Guardar</button>
       <button mat-button id="onNoClick" (click)="onNoClick()" tabindex="-1">Cancelar</button>

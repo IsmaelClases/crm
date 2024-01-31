@@ -50,7 +50,7 @@ export class DatosBasicosAlumnosComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getAlumnos(this.unidadCentro.id_unidad_centro); // Reemplazar '2' con la lógica adecuada
+    this.getAlumnos(this.unidadCentro.id_unidad_centro);
   }
 
   async getAlumnos(idCentro: number) {
@@ -122,6 +122,7 @@ export class DatosBasicosAlumnosComponent implements OnInit {
       if (result.ok) {
         this.alumnoService.alumnos.push(result.data);
         this.dataSource.data = this.alumnoService.alumnos;
+        this.getAlumnos(this.unidadCentro.id_unidad_centro);
       }
     }
   }
@@ -132,8 +133,8 @@ export class DatosBasicosAlumnosComponent implements OnInit {
 
     if (result) {
       if (result.ok) {
-        // Implementar la edición en el servicio si es necesario
         this.dataSource.data = this.alumnoService.alumnos;
+        this.getAlumnos(this.unidadCentro.id_unidad_centro);
       }
     }
   }
@@ -144,8 +145,8 @@ export class DatosBasicosAlumnosComponent implements OnInit {
 
     if (result) {
       if (result.ok) {
-        // Implementar la eliminación en el servicio si es necesario
         this.dataSource.data = this.alumnoService.alumnos;
+        this.getAlumnos(this.unidadCentro.id_unidad_centro);
       }
     }
   }

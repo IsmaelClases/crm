@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { AlumnoService } from 'src/app/services/alumno.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -29,11 +29,10 @@ export class AddAlumnoComponent implements OnInit {
       fecha_nacimiento: new FormControl(null, Validators.required),
       linkedin: new FormControl(null, Validators.required),
       nivel_ingles: new FormControl(null, Validators.required),
-      minusvalia: new FormControl(null, Validators.required),
+      minusvalia: new FormControl(0, [Validators.required, Validators.min(0), Validators.max(100)]),
       otra_formacion: new FormControl(null),
       centro_actual: new FormControl(this.centro_actual)
     });
-    console.log('aaa'+this.centro_actual)
   }
 
   async confirmAdd() {

@@ -5,7 +5,7 @@
 
         <div class="form">
             <mat-form-field color="accent">
-                <input matInput placeholder="ID" formControlName="id" name="id" maxlength="5" required>
+                <input matInput placeholder="ID" formControlName="id" name="id" maxlength="20" required>
             </mat-form-field>
         </div>
 
@@ -45,13 +45,23 @@
                 </mat-select>
             </mat-form-field>
         </div>
-
+      
         <div class="form">
             <mat-form-field color="accent">
                 <input matInput type="number" placeholder="Minusvalía" formControlName="minusvalia" name="minusvalia" min="0" max="100" required>
             </mat-form-field>
         </div>
-
+  <!--        
+        <div class="form">
+            <mat-slider
+                min="0"
+                max="100"
+                step="1"
+                thumbLabel
+                [formControl]="alumnoForm.get('minusvalia')"
+            ></mat-slider>
+        </div>        
+-->
         <div class="form">
             <mat-form-field color="accent">
                 <textarea matInput placeholder="Otra Formación" formControlName="otra_formacion" name="otra_formacion"></textarea>

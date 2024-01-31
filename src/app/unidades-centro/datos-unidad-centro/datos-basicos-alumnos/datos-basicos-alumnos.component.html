@@ -23,8 +23,8 @@
           <input matInput [formControl]="edadFilter" placeholder="Edad" required>
           <span mat-sort-header></span>
         </th>
-        <td mat-cell *matCellDef="let alumno"> {{alumno.fecha_nacimiento}} </td>
-      </ng-container>
+        <td mat-cell *matCellDef="let alumno"> {{ alumno.fecha_nacimiento | edadAlumno }} años </td>
+      </ng-container>      
 
       <ng-container matColumnDef="nivel_ingles">
         <th mat-header-cell *matHeaderCellDef>

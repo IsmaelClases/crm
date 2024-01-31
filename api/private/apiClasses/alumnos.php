@@ -43,7 +43,7 @@ class Alumnos extends Conexion
         $linkedin = $this->trimIfString($data['linkedin']);
         $nivel_ingles = $this->trimIfString($data['nivel_ingles']);
         $minusvalia = $this->trimIfString($data['minusvalia']);
-        $otra_formacion = $this->trimIfString($data['otra_formacion']);
+        $otra_formacion = isset($data['otra_formacion']) ? $this->trimIfString($data['otra_formacion']) : ''; // Convertir a cadena vacía si es null
         $centro_actual = $this->trimIfString($data['centro_actual']);
 
         if (isset($id) && isset($nombre) && isset($apellidos) && isset($fecha_nacimiento) && isset($nivel_ingles) && isset($minusvalia) && isset($otra_formacion) && isset($centro_actual)) {
@@ -86,7 +86,7 @@ class Alumnos extends Conexion
         $linkedin = $this->trimIfString($data['linkedin']);
         $nivel_ingles = $this->trimIfString($data['nivel_ingles']);
         $minusvalia = $this->trimIfString($data['minusvalia']);
-        $otra_formacion = $this->trimIfString($data['otra_formacion']);
+        $otra_formacion = isset($data['otra_formacion']) ? $this->trimIfString($data['otra_formacion']) : ''; // Convertir a cadena vacía si es null
         $centro_actual = $this->trimIfString($data['centro_actual']);
 
         if (isset($id) && isset($nombre) && isset($apellidos) && isset($fecha_nacimiento) && isset($nivel_ingles) && isset($minusvalia) && isset($otra_formacion) && isset($centro_actual)) {

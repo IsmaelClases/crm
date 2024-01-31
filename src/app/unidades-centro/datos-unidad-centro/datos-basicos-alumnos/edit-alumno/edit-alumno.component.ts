@@ -27,7 +27,6 @@ export class EditAlumnoComponent implements OnInit {
 
   ngOnInit() {
     this.alumnoForm = new FormGroup({
-      /*
       id: new FormControl(this.alumno.id),
       nombre: new FormControl(this.alumno.nombre, Validators.required),
       apellidos: new FormControl(this.alumno.apellidos, Validators.required),
@@ -37,16 +36,6 @@ export class EditAlumnoComponent implements OnInit {
       minusvalia: new FormControl(this.alumno.minusvalia, Validators.required),
       otra_formacion: new FormControl(this.alumno.otra_formacion),
       centro_actual: new FormControl(this.alumno.centro_actual, Validators.required)
-      */
-      id: new FormControl(null),
-      nombre: new FormControl(null, Validators.required),
-      apellidos: new FormControl(null, Validators.required),
-      fecha_nacimiento: new FormControl(null, Validators.required),
-      linkedin: new FormControl(null, Validators.required),
-      nivel_ingles: new FormControl(null, Validators.required),
-      minusvalia: new FormControl(null, Validators.required),
-      otra_formacion: new FormControl(null),
-      centro_actual: new FormControl(null, Validators.required)
     });
   }
 
