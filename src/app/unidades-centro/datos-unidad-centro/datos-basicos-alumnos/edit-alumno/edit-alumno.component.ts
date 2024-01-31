@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Alumno } from 'src/app/shared/interfaces/alumno';
 import { AlumnoService } from 'src/app/services/alumno.service';
 import { CLOSE, INVALID_FORM } from 'src/app/shared/messages';
+import { LinkedinUrlValidator } from 'src/app/shared/validators/linkedinUrlValidator';
 
 @Component({
   selector: 'app-edit-alumno',
@@ -31,7 +32,7 @@ export class EditAlumnoComponent implements OnInit {
       nombre: new FormControl(this.alumno.nombre, Validators.required),
       apellidos: new FormControl(this.alumno.apellidos, Validators.required),
       fecha_nacimiento: new FormControl(this.alumno.fecha_nacimiento, Validators.required),
-      linkedin: new FormControl(this.alumno.linkedin, Validators.required),
+      linkedin: new FormControl(this.alumno.linkedin, [Validators.required, LinkedinUrlValidator()]),
       nivel_ingles: new FormControl(this.alumno.nivel_ingles, Validators.required),
       minusvalia: new FormControl(this.alumno.minusvalia, Validators.required),
       otra_formacion: new FormControl(this.alumno.otra_formacion),

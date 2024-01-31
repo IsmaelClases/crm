@@ -24,30 +24,17 @@
           <span mat-sort-header></span>
         </th>
         <td mat-cell *matCellDef="let alumno"> {{ alumno.fecha_nacimiento | edadAlumno }} años </td>
-      </ng-container>      
-
-      <ng-container matColumnDef="nivel_ingles">
-        <th mat-header-cell *matHeaderCellDef>
-          <input matInput [formControl]="nivelInglesFilter" placeholder="Nivel de Inglés" required>
-          <span mat-sort-header></span>
-        </th>
-        <td mat-cell *matCellDef="let alumno"> {{alumno.nivel_ingles}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="minusvalia">
+      <ng-container matColumnDef="linkedin">
         <th mat-header-cell *matHeaderCellDef>
-          <input matInput [formControl]="minusvaliaFilter" placeholder="Minusvalía" required>
+          <input matInput placeholder="Linkedin">
           <span mat-sort-header></span>
         </th>
-        <td mat-cell *matCellDef="let alumno"> {{alumno.minusvalia}} </td>
-      </ng-container>
+        <td mat-cell *matCellDef="let alumno">
+          <img class="linkedin" src="assets/img/linkedin.png" (click)="linkedin(alumno.linkedin)" />
 
-      <ng-container matColumnDef="otra_formacion">
-        <th mat-header-cell *matHeaderCellDef>
-          <input matInput [formControl]="otraFormacionFilter" placeholder="Otra Formación">
-          <span mat-sort-header></span>
-        </th>
-        <td mat-cell *matCellDef="let alumno"> {{alumno.otra_formacion}} </td>
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="actions">

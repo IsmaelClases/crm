@@ -27,9 +27,6 @@ export class DatosBasicosAlumnosComponent implements OnInit {
   nombreFilter = new FormControl();
   apellidosFilter = new FormControl();
   edadFilter = new FormControl();
-  nivelInglesFilter = new FormControl();
-  minusvaliaFilter = new FormControl();
-  otraFormacionFilter = new FormControl();
 
   displayedColumns: string[];
 
@@ -37,9 +34,6 @@ export class DatosBasicosAlumnosComponent implements OnInit {
     nombre: '',
     apellidos: '',
     edad: 0,
-    nivel_ingles: '',
-    minusvalia: '',
-    otra_formacion: '',
   };
 
   constructor(
@@ -58,7 +52,7 @@ export class DatosBasicosAlumnosComponent implements OnInit {
 
     if (RESPONSE.ok) {
       this.alumnoService.alumnos = RESPONSE.data as Alumno[];
-      this.displayedColumns = ['nombre', 'apellidos', 'edad', 'nivel_ingles', 'minusvalia', 'otra_formacion', 'actions'];
+      this.displayedColumns = ['nombre', 'apellidos', 'edad', 'linkedin', 'actions'];
       this.dataSource.data = this.alumnoService.alumnos;
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -74,9 +68,6 @@ export class DatosBasicosAlumnosComponent implements OnInit {
 //Filtrar por edad en algun momento
       return alumno.nombre.toLowerCase().indexOf(searchTerms.nombre.toLowerCase()) !== -1
         && alumno.apellidos.toLowerCase().indexOf(searchTerms.apellidos.toLowerCase()) !== -1
-        && (alumno.nivel_ingles || '').toLowerCase().indexOf(searchTerms.nivel_ingles.toLowerCase()) !== -1
-        && (alumno.minusvalia || '').toString().indexOf(searchTerms.minusvalia) !== -1
-        && (alumno.otra_formacion || '').toLowerCase().indexOf(searchTerms.otra_formacion.toLowerCase()) !== -1;
     };
 
     return filterFunction;
@@ -95,21 +86,6 @@ export class DatosBasicosAlumnosComponent implements OnInit {
 
     this.edadFilter.valueChanges.subscribe(value => {
       this.filterValues.edad = value;
-      this.dataSource.filter = JSON.stringify(this.filterValues);
-    });
-
-    this.nivelInglesFilter.valueChanges.subscribe(value => {
-      this.filterValues.nivel_ingles = value;
-      this.dataSource.filter = JSON.stringify(this.filterValues);
-    });
-
-    this.minusvaliaFilter.valueChanges.subscribe(value => {
-      this.filterValues.minusvalia = value;
-      this.dataSource.filter = JSON.stringify(this.filterValues);
-    });
-
-    this.otraFormacionFilter.valueChanges.subscribe(value => {
-      this.filterValues.otra_formacion = value;
       this.dataSource.filter = JSON.stringify(this.filterValues);
     });
   }
@@ -149,5 +125,9 @@ export class DatosBasicosAlumnosComponent implements OnInit {
         this.getAlumnos(this.unidadCentro.id_unidad_centro);
       }
     }
+  }
+
+  public linkedin(url: string): void {
+    window.open(url)
   }
 }

@@ -1,30 +1,30 @@
 <div class="container">
-    <h3 mat-dialog-title>Editar Unidades Centro</h3>
+  <h3 mat-dialog-title>Editar Unidades Centro</h3>
 
-    <form class="mat-dialog-content" [formGroup]="datosUnidadesCentroForm">
+  <form class="mat-dialog-content" [formGroup]="datosUnidadesCentroForm">
 
-      <div class="form">
-        <mat-form-field color="accent">
-            <input matInput placeholder="Unidad Centro" formControlName="unidad_centro" name="unidad_centro" maxlength="100" required>
-        </mat-form-field>
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="Unidad Centro" formControlName="unidad_centro" name="unidad_centro" maxlength="100"
+          required>
+      </mat-form-field>
     </div>
 
     <div class="form">
       <mat-form-field>
-          <mat-select formControlName="id_ciclo" placeholder="Nombre Ciclo">
-              <mat-option *ngFor="let ciclo of ciclos" [value]="ciclo.id_ciclo">
-                  {{ ciclo.ciclo }}
-              </mat-option>
-          </mat-select>
+        <mat-select formControlName="id_ciclo" placeholder="Nombre Ciclo">
+          <mat-option *ngFor="let ciclo of ciclos" [value]="ciclo.id_ciclo">
+            {{ ciclo.ciclo }}
+          </mat-option>
+        </mat-select>
       </mat-form-field>
-  </div>
-
-    <div class="form">
-        <mat-form-field color="accent">
-            <textarea matInput placeholder="Observaciones" formControlName="observaciones"
-                name="observaciones"></textarea>
-        </mat-form-field>
     </div>
 
-    </form>
-  </div>
+    <div class="form">
+      <mat-form-field color="accent">
+        <textarea matInput placeholder="Observaciones" formControlName="observaciones" name="observaciones"></textarea>
+      </mat-form-field>
+    </div>
+
+  </form>
+</div>

@@ -25,11 +25,18 @@
     </div>
 
     <div class="form">
-      <mat-form-field>
-        <input matInput placeholder="LinkedIn" formControlName="linkedin"
-          maxlength="100" required>
+      <mat-form-field color="accent">
+          <input matInput placeholder="LinkedIn"
+              formControlName="linkedin" name="linkedin" maxlength="255"
+              required>
+          <mat-error
+              *ngIf="alumnoForm.get('linkedin').hasError('required')">El
+              campo LinkedIn es obligatorio</mat-error>
+          <mat-error
+              *ngIf="alumnoForm.get('linkedin').hasError('linkedinUrl')">Ingrese
+              una URL de LinkedIn válida</mat-error>
       </mat-form-field>
-    </div>
+  </div>
 
     <div class="form">
       <mat-form-field>
