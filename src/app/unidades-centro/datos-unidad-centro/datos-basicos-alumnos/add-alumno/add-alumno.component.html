@@ -5,37 +5,60 @@
 
         <div class="form">
             <mat-form-field color="accent">
-                <input matInput placeholder="ID" formControlName="id" name="id" maxlength="20" required>
+                <input matInput placeholder="ID" formControlName="id" name="id"
+                    maxlength="20" required>
             </mat-form-field>
         </div>
 
         <div class="form">
             <mat-form-field color="accent">
-                <input matInput placeholder="Nombre" formControlName="nombre" name="nombre" maxlength="255" required>
+                <input matInput placeholder="Nombre" formControlName="nombre"
+                    name="nombre" maxlength="255" required>
             </mat-form-field>
         </div>
 
         <div class="form">
             <mat-form-field color="accent">
-                <input matInput placeholder="Apellidos" formControlName="apellidos" name="apellidos" maxlength="255" required>
+                <input matInput placeholder="Apellidos"
+                    formControlName="apellidos" name="apellidos" maxlength="255"
+                    required>
             </mat-form-field>
         </div>
 
         <div class="form">
             <mat-form-field>
-              <input type="date" matInput placeholder="Fecha" formControlName="fecha_nacimiento" name="fecha_nacimiento" maxlength="100" required>
+                <input type="date" matInput placeholder="Fecha"
+                    formControlName="fecha_nacimiento" name="fecha_nacimiento"
+                    maxlength="100" required>
             </mat-form-field>
         </div>
-
+        <!--
         <div class="form">
             <mat-form-field color="accent">
-                <input matInput placeholder="LinkedIn" formControlName="linkedin" name="linkedin" maxlength="255" required>
+                <input matInput placeholder="LinkedIn"
+                formControlName="linkedin" name="linkedin" maxlength="255"
+                required>
+            </mat-form-field>
+        </div>
+        -->
+        <div class="form">
+            <mat-form-field color="accent">
+                <input matInput placeholder="LinkedIn"
+                    formControlName="linkedin" name="linkedin" maxlength="255"
+                    required>
+                <mat-error
+                    *ngIf="alumnoForm.get('linkedin').hasError('required')">El
+                    campo LinkedIn es obligatorio</mat-error>
+                <mat-error
+                    *ngIf="alumnoForm.get('linkedin').hasError('linkedinUrl')">Ingrese
+                    una URL de LinkedIn válida</mat-error>
             </mat-form-field>
         </div>
 
         <div class="form">
             <mat-form-field>
-                <mat-select formControlName="nivel_ingles" placeholder="Nivel de Inglés">
+                <mat-select formControlName="nivel_ingles"
+                    placeholder="Nivel de Inglés">
                     <mat-option value="A1">A1</mat-option>
                     <mat-option value="A2">A2</mat-option>
                     <mat-option value="B1">B1</mat-option>
@@ -45,32 +68,28 @@
                 </mat-select>
             </mat-form-field>
         </div>
-      
-        <div class="form">
-            <mat-form-field color="accent">
-                <input matInput type="number" placeholder="Minusvalía" formControlName="minusvalia" name="minusvalia" min="0" max="100" required>
-            </mat-form-field>
+
+        <div class="form" class="minus">
+            <label for="slider">Minusvalía: {{
+                alumnoForm.get('minusvalia').value }} %</label>
+            <input type="range" class="form-range" id="slider"
+                formControlName="minusvalia" min="0" max="100" step="1">
         </div>
-  <!--        
-        <div class="form">
-            <mat-slider
-                min="0"
-                max="100"
-                step="1"
-                thumbLabel
-                [formControl]="alumnoForm.get('minusvalia')"
-            ></mat-slider>
-        </div>        
--->
+
         <div class="form">
             <mat-form-field color="accent">
-                <textarea matInput placeholder="Otra Formación" formControlName="otra_formacion" name="otra_formacion"></textarea>
+                <textarea matInput placeholder="Otra Formación"
+                    formControlName="otra_formacion"
+                    name="otra_formacion"></textarea>
             </mat-form-field>
         </div>
 
         <div mat-dialog-actions>
-            <button mat-button id="onSubmit" type="submit" [disabled]="!alumnoForm.valid" (click)="confirmAdd()">Guardar</button>
-            <button mat-button id="onNoClick" (click)="onNoClick()" tabindex="-1">Cancelar</button>
+            <button mat-button id="onSubmit" type="submit"
+                [disabled]="!alumnoForm.valid"
+                (click)="confirmAdd()">Guardar</button>
+            <button mat-button id="onNoClick" (click)="onNoClick()"
+                tabindex="-1">Cancelar</button>
         </div>
 
     </form>

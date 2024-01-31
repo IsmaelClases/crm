@@ -5,49 +5,58 @@
 
     <div class="form">
       <mat-form-field>
-        <input matInput placeholder="Nombre" formControlName="nombre" maxlength="100" required>
+        <input matInput placeholder="Nombre" formControlName="nombre"
+          maxlength="100" required>
       </mat-form-field>
     </div>
 
     <div class="form">
       <mat-form-field>
-        <input matInput placeholder="Apellidos" formControlName="apellidos" maxlength="100" required>
+        <input matInput placeholder="Apellidos" formControlName="apellidos"
+          maxlength="100" required>
       </mat-form-field>
     </div>
 
     <div class="form">
       <mat-form-field>
-        <input matInput placeholder="Fecha de Nacimiento" formControlName="fecha_nacimiento" type="date" required>
+        <input matInput placeholder="Fecha de Nacimiento"
+          formControlName="fecha_nacimiento" type="date" required>
       </mat-form-field>
     </div>
 
     <div class="form">
       <mat-form-field>
-        <input matInput placeholder="LinkedIn" formControlName="linkedin" maxlength="100" required>
+        <input matInput placeholder="LinkedIn" formControlName="linkedin"
+          maxlength="100" required>
       </mat-form-field>
     </div>
 
     <div class="form">
       <mat-form-field>
-        <input matInput placeholder="Nivel de Inglés" formControlName="nivel_ingles" maxlength="100" required>
+        <input matInput placeholder="Nivel de Inglés"
+          formControlName="nivel_ingles" maxlength="100" required>
       </mat-form-field>
+    </div>
+
+    <div class="form" class="minus">
+      <label for="slider">Minusvalía: {{
+        alumnoForm.get('minusvalia').value }} %</label>
+      <input type="range" class="form-range" id="slider"
+        formControlName="minusvalia" min="0" max="100" step="1">
     </div>
 
     <div class="form">
       <mat-form-field>
-        <input matInput placeholder="Minusvalía" formControlName="minusvalia" maxlength="100" required>
-      </mat-form-field>
-    </div>
-
-    <div class="form">
-      <mat-form-field>
-        <input matInput placeholder="Otra Formación" formControlName="otra_formacion" maxlength="100">
+        <input matInput placeholder="Otra Formación"
+          formControlName="otra_formacion" maxlength="100">
       </mat-form-field>
     </div>
 
     <div mat-dialog-actions>
-      <button mat-button id="onSubmit" type="submit" [disabled]="!alumnoForm.valid" (click)="confirmEdit()">Guardar</button>
-      <button mat-button id="onNoClick" (click)="onNoClick()" tabindex="-1">Cancelar</button>
+      <button mat-button id="onSubmit" type="submit"
+        [disabled]="!alumnoForm.valid" (click)="confirmEdit()">Guardar</button>
+      <button mat-button id="onNoClick" (click)="onNoClick()"
+        tabindex="-1">Cancelar</button>
     </div>
 
   </form>

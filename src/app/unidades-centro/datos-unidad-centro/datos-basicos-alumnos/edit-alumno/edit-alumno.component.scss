@@ -1,5 +1,4 @@
 .mat-dialog-content {
-    overflow: hidden;
     width: 18em;
 }
 
@@ -13,4 +12,37 @@
 div.mat-dialog-actions {
     width: 12em;
     margin: auto;
+}
+
+.minus {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    input[type='range'] {
+        overflow: hidden;
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: #d3d3d3;
+    }
+
+    input[type='range']::-webkit-slider-runnable-track {
+        height: 25px;
+        -webkit-appearance: none;
+        appearance: none;
+        color: #13bba4;
+        margin-top: -1px;
+    }
+
+    input[type='range']::-webkit-slider-thumb {
+        width: 25px;
+        -webkit-appearance: none;
+        appearance: none;
+        height: 25px;
+        cursor: ew-resize;
+        background: #434343;
+        box-shadow: -100vw 0 0 100vw #ff4081;
+    }
 }
