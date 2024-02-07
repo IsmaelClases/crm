@@ -1,0 +1,19 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { VacantesAlumnosComponent } from './vacantes-alumnos.component';
+import { CrudMaterialModule } from '../modules/crud-material/crud-material.module';
+import { VacantesAlumnosRoutingModule } from './vacantes-alumnos-routing.module';
+import { AddVacanteComponent } from './add-vacante/add-vacante.component';
+import { DeleteVacanteComponent } from './delete-vacante/delete-vacante.component';
+
+
+
+@NgModule({
+  declarations: [VacantesAlumnosComponent, AddVacanteComponent, DeleteVacanteComponent],
+  imports: [
+    CommonModule,
+    CrudMaterialModule,
+    VacantesAlumnosRoutingModule
+  ]
+})
+export class VacantesAlumnosModule { }

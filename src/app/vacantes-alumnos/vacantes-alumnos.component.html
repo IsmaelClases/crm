@@ -1,0 +1,39 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-table-container">
+    <table mat-table class="mat-elevation-z8" matSort>
+
+      <ng-container matColumnDef="unidad_centro">
+        <th mat-header-cell *matHeaderCellDef>
+          <input matInput placeholder="Unidad Centro" required>
+          <span mat-sort-header></span>
+        </th>
+        <td mat-cell *matCellDef="let datos"> {{datos.unidad_centro}} </td>
+      </ng-container>
+
+      <!-- <ng-container matColumnDef="alumnado">
+        <th mat-header-cell *matHeaderCellDef>
+          <input matInput  placeholder="Confirmados / Totales">
+          <span mat-sort-header></span>
+        </th>
+        <td mat-cell *matCellDef="let unidadCentro"> {{unidadCentro.ciclo}} </td>
+      </ng-container> -->
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>
+        </th>
+        <td mat-cell *matCellDef="let unidadCentro">
+          <button mat-icon-button >
+            <mat-icon>
+                assignment
+            </mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+
+</div>
