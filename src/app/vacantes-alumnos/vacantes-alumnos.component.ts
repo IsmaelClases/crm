@@ -42,7 +42,6 @@ export class VacantesAlumnosComponent implements OnInit {
 
   async getListado() {
     const RESPONSE = await this.vacantesAlumnosService.getListado().toPromise();
-
     if (RESPONSE.ok) {
       this.vacantesAlumnos = RESPONSE.data as VacantesAlumnos[];
       this.displayedColumns = ["entidad", "unidad", "num_alumnos", "actions"];

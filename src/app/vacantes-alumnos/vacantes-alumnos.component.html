@@ -23,7 +23,7 @@
                 <input matInput placeholder="Número de alumnos">
                 <span mat-sort-header></span>
               </th>
-              <td mat-cell *matCellDef="let vacantesAlumnos"> {{ vacantesAlumnos.num_alumnos }} </td>
+              <td mat-cell *matCellDef="let vacantesAlumnos"> {{ vacantesAlumnos.alumnos_asignados + '/' + vacantesAlumnos.num_alumnos }} </td>
           </ng-container>
 
           <ng-container matColumnDef="actions">
