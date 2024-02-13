@@ -1,1 +1,39 @@
-<p>add-vacante works!</p>
+<div class="container">
+    <h3 mat-dialog-title>Nueva Vacante</h3>
+
+    <form class="mat-dialog-content" [formGroup]="vacanteForm">
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Entidad</mat-label>
+                <mat-select formControlName="id_entidad">
+                    <mat-option *ngFor="let entidad of entidades" [value]="entidad.id_entidad">
+                        {{ entidad.entidad }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+            <mat-form-field>
+                <mat-label>Unidad Centro</mat-label>
+                <mat-select formControlName="id_unidad_centro">
+                    <mat-option *ngFor="let unidad of unidadesCentro" [value]="unidad.id_unidad_centro">
+                        {{ unidad.unidad_centro }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="form">
+          <mat-form-field color="accent">
+            <input matInput type="text" placeholder="Número de alumnos" formControlName="num_alumnos" name="num_alumnos" required pattern="[0-9]+">
+          </mat-form-field>
+        </div>
+
+        <div mat-dialog-actions>
+            <button id="onSubmit" mat-button type="submit"  [disabled]="!vacanteForm.valid" (click)="confirmAdd()">Guardar</button>
+            <button id="onNoClick" mat-button type="button" (click)="onNoClick()" tabindex="-1">Cancelar</button>
+        </div>
+
+    </form>
+</div>

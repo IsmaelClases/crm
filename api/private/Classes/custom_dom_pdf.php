@@ -11,7 +11,7 @@ class CustomDomPDF extends Dompdf {
     const A4 = 'A4';
     const PORTRAIT = 'portrait';
     private $html = '';
-    
+
     public function loadTemplateInforme($data_reunion, $data_asistentes) {
 
         $utils = new PlantillaUtils();
@@ -40,10 +40,10 @@ class CustomDomPDF extends Dompdf {
         $this->html .= '            </div>';
         $this->html .= '            <div>';
         $this->html .= '                    <p class="titulo-seccion">Asistentes</p>';
-        
+
         foreach ($data_asistentes as $asistente) {
             $this->html .= '                    <p class="campos">'.$asistente['entidad'].' - '.$asistente['nombre_completo'];
-            
+
             if ($asistente['cargo']) {
                 $this->html .= ' - '.$asistente['cargo'];
             }
@@ -75,7 +75,7 @@ class CustomDomPDF extends Dompdf {
         $this->html .= '    <div class="row">';
         $this->html .= '        <div class="column"> Firma Dinamizador<br/></div>';
         $this->html .= '        <div class="column"> Firma y sello: '.$data_reunion['fk_entidad_target'].'<br/></div>';
-        $this->html .= '    </div>';        
+        $this->html .= '    </div>';
 
         $this->html .= '    </div>';
 
@@ -98,7 +98,7 @@ class CustomDomPDF extends Dompdf {
 
         $this->loadHtml($this->html);
 
-   
+
     }
 
     public function generatePDF() {
@@ -118,7 +118,6 @@ class CustomDomPDF extends Dompdf {
         $this->html .= '<link rel="stylesheet" href="Classes/css/'.$css.'.css" type="text/css">';
         $this->html .= '</head>';
     }
--
 }
 
 class PlantillaUtils {

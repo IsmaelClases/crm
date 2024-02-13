@@ -1,5 +1,8 @@
 export interface VacantesAlumnos {
-  unidad_centro: string,
-  plazas_ocupadas: string,
-  plazas_totales: string
+  id_vacante: number;
+  id_entidad: number;
+  entidad: string;
+  id_unidad_centro: number;
+  num_alumnos: number;
+  alumnos_asignados: string | null;
 }

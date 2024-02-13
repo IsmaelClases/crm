@@ -1,0 +1,75 @@
+.container {
+  margin: 0 auto;
+  width: 800px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.mat-dialog-title {
+  margin-top: 0;
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+.form {
+  margin-bottom: 20px;
+}
+
+.mat-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mat-icon-button {
+  margin-left: 5px;
+}
+
+.alumnos-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-bottom: 1px;
+
+  .mw {
+    width: 40%;
+  }
+  .mb {
+    margin-bottom: 3%;
+  }
+  .mt {
+    margin-top: 3%;
+  }
+
+  .alumnos {
+    display: flex;
+    flex-direction: column;
+
+    .input-container {
+      margin-top: 5px;
+    }
+  }
+
+  h4 {
+    margin-top: 0px;
+  }
+
+  .mat-list-item {
+    .alumno-info {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+    }
+
+    .alumno-name {
+      font-size: 18px;
+    }
+
+    .alumno-actions {
+      margin-right: 3%;
+    }
+  }
+}

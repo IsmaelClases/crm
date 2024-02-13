@@ -1,0 +1,111 @@
+<div class="container">
+  <h3 mat-dialog-title>Editar vacante</h3>
+
+  <form class="mat-dialog-content" [formGroup]="vacanteForm">
+    <div class="form">
+      <mat-form-field>
+        <mat-label>Entidad</mat-label>
+        <mat-select formControlName="id_entidad">
+          <mat-option
+            *ngFor="let entidad of entidades"
+            [value]="entidad.id_entidad"
+          >
+            {{ entidad.entidad }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field>
+        <mat-label>Unidad Centro</mat-label>
+        <mat-select formControlName="id_unidad_centro">
+          <mat-option
+            *ngFor="let unidad of unidades"
+            [value]="unidad.id_unidad_centro"
+          >
+            {{ unidad.unidad_centro }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input
+          matInput
+          type="number"
+          placeholder="Número de alumnos"
+          formControlName="num_alumnos"
+          name="num_alumnos"
+          required
+          pattern="[0-9]+"
+          (change)="comprobarMinimo($event.target.value)"
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="alumnos-container">
+      <div class="mw">
+        <h4 class="mb">Seleccionar Alumno</h4>
+        <mat-form-field>
+          <input
+            id="alumnoInput"
+            matInput
+            type="text"
+            placeholder="Escriba el nombre"
+            [formControl]="alumnosSeleccionadosControl"
+            (change)="asignarAlumno($event.target.value)"
+            [attr.disabled]="alumnosSeleccionados.length >= vacanteForm.get('num_alumnos').value ? true : null"
+            list="alumnos"
+          />
+          <datalist id="alumnos">
+            <option *ngFor="let alumno of alumnosTotales" [value]="alumno.nombre + ' ' + alumno.apellidos">
+              {{ alumno.nombre + " " + alumno.apellidos }}
+            </option>
+          </datalist>
+        </mat-form-field>
+      </div>
+
+      <div class="alumnos-seleccionados mw">
+        <h4>Alumnos asignados:</h4>
+        <mat-list dense>
+          <mat-list-item *ngFor="let alumno of alumnosSeleccionados">
+            <div class="alumno-info">
+              <div class="alumno-actions">
+                <button type="button" mat-icon-button (click)="quitarAlumno(alumno)" >
+                  <mat-icon>clear</mat-icon>
+                </button>
+              </div>
+              <div class="alumno-name">{{ alumno.nombre }} {{ alumno.apellidos }}</div>
+            </div>
+          </mat-list-item>
+        </mat-list>
+        <div class="mt" *ngIf="alumnosSeleccionados.length === 0">
+          No hay alumnos asignados.
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button
+        mat-button
+        id="onSubmit"
+        type="submit"
+        [disabled]="!vacanteForm.valid"
+        (click)="confirmEdit()"
+      >
+        Guardar
+      </button>
+      <button
+        mat-button
+        id="onNoClick"
+        type="button"
+        (click)="onNoClick()"
+        tabindex="-1"
+      >
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>
