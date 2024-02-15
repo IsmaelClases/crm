@@ -10,6 +10,7 @@ import { VacantesAlumnos } from '../shared/interfaces/vacantes-alumnos';
 import { AddVacanteComponent } from './add-vacante/add-vacante.component';
 import { DeleteVacanteComponent } from './delete-vacante/delete-vacante.component';
 import { EditVacanteComponent } from './edit-vacante/edit-vacante.component';
+import { InfoVacantesComponent } from './info-vacantes/info-vacantes.component';
 
 @Component({
   selector: "app-vacantes-alumnos",
@@ -89,6 +90,22 @@ export class VacantesAlumnosComponent implements OnInit {
     if (RESULT) {
       if (RESULT.ok) {
         this.getListado();
+      }
+    }
+  }
+
+  async infoVacantes() {
+    const RESPONSE = await this.vacantesAlumnosService.getResumen().toPromise();
+    if (RESPONSE.ok) {
+      const dialogRef = this.dialog.open(InfoVacantesComponent, {
+        data: RESPONSE.data,
+        scrollStrategy: this.overlay.scrollStrategies.noop(),
+      });
+      const RESULT = await dialogRef.afterClosed().toPromise();
+      if (RESULT) {
+        if (RESULT.ok) {
+          this.getListado();
+        }
       }
     }
   }

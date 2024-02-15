@@ -7,11 +7,12 @@ import { AddVacanteComponent } from './add-vacante/add-vacante.component';
 import { DeleteVacanteComponent } from './delete-vacante/delete-vacante.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { EditVacanteComponent } from './edit-vacante/edit-vacante.component';
+import { InfoVacantesComponent } from './info-vacantes/info-vacantes.component';
 
 
 
 @NgModule({
-  declarations: [VacantesAlumnosComponent, AddVacanteComponent, DeleteVacanteComponent, EditVacanteComponent],
+  declarations: [VacantesAlumnosComponent, AddVacanteComponent, DeleteVacanteComponent, EditVacanteComponent, InfoVacantesComponent],
   imports: [
     CommonModule,
     MatPaginatorModule,

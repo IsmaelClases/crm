@@ -1,0 +1,19 @@
+<div data-table-theme="default zebra">
+  <h3 mat-dialog-title>Resumen Plazas Asignadas</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Unidad Centro</th>
+        <th>Alumnos Totales</th>
+        <th>Alumnos Asignados</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let info of infoVacantes">
+        <td>{{info.unidad_centro}}</td>
+        <td>{{info.alumnos_asignados}}</td>
+        <td>{{info.alumnos_totales}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

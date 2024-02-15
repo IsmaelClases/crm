@@ -33,6 +33,11 @@
                           add_circle
                       </mat-icon>
                   </button>
+                  <button mat-icon-button (click)="infoVacantes()">
+                    <mat-icon>
+                        info
+                    </mat-icon>
+                </button>
               </th>
               <td mat-cell *matCellDef="let vacantesAlumnos">
                   <button mat-icon-button (click)="editVacante(vacantesAlumnos)">

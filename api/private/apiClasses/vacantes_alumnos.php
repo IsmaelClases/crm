@@ -38,6 +38,27 @@ class VacantesAlumnos extends Conexion
     $this->closeConnection();
   }
 
+  public function getResumen()
+  {
+    $sql = $this->conexion->prepare("SELECT unidad_centro,
+              (SELECT COUNT(sgi_vacantes_X_alumnos.id_alumno)
+                  FROM sgi_vacantes_X_alumnos
+                  INNER JOIN sgi_alumnado ON sgi_alumnado.id = sgi_vacantes_X_alumnos.id_vacante
+                  WHERE sgi_alumnado.centro_actual = sgi_unidades_centro.id_unidad_centro
+              ) AS alumnos_asignados,
+              (SELECT COUNT(id)
+                  FROM sgi_alumnado
+                  WHERE sgi_alumnado.centro_actual = sgi_unidades_centro.id_unidad_centro
+              ) AS alumnos_totales
+          FROM sgi_unidades_centro");
+    $exito = $sql->execute();
+    if($exito) {
+      $this->status = true;
+      $this->data = $sql->fetchAll(PDO::FETCH_ASSOC);
+    }
+    $this->closeConnection();
+  }
+
   public function create($data)
   {
     $id_entidad = isset($data['id_entidad']) ? $data['id_entidad'] : null;

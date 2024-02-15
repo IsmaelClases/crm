@@ -23,6 +23,10 @@ export class VacantesAlumnosService {
     return this.http.get<ApiResponse>(`${URL_API}/${ENDPOINT}.php`, { headers: this.commonService.headers });
   }
 
+  getResumen() {
+    return this.http.get<ApiResponse>(`${URL_API}/${ENDPOINT}.php?opcion=resumen`, { headers: this.commonService.headers });
+  }
+
   addVacante(vacante: VacantesAlumnos) {
     const body = JSON.stringify(vacante);
     return this.http.post<ApiResponse>(`${URL_API}/${ENDPOINT}.php`, body, { headers: this.commonService.headers });
